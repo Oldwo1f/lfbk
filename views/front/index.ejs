@@ -1,201 +1,824 @@
 
-    <div class="slider-wrapper">
-        
-        <!-- masterslider -->
-        <div class="master-slider" id="masterslider" data-height="fullscreen" data-fill-mode="fill">
-            
-         
-            <!-- end of slide -->
-            
-            <!-- slide 2 -->
-             <div class="ms-slide slide-video" style="z-index: 9" data-delay="8">
-                
-                <div class="visible-xs logomobile anim fadeInDown">
-                        <center><img src="images/front/arbatou.svg" style="width: 290px;" alt="Footer logo arbatou." /></center>
+
+<body class="stretched HOME">
+
+
+    
+
+    <!-- Document Wrapper
+    ============================================= -->
+    <div id="wrapper" class="clearfix">
+
+       <%- include menu.ejs %>
+
+        <!-- Slider
+        ============================================= -->
+        <section id="slider" class="slider-parallax full-screen force-full-screen">
+             <div id="logobig">
+                        <a href="/" class="standard-logo" data-dark-logo="images/flyin-logo.jpg"><img src="images/flyin-logo.jpg" alt="FlynIn LFBK - Logo" height="100%" width="100%"></a>
+                        
+            </div>
+
+            <div class="full-screen force-full-screen dark section nopadding nomargin noborder ohidden">
+
+                <div class="col-xs-6 nopadding half-screen dark videoplay-on-hover">
+                    <div class="vertical-middle ignore-header center">
+                        <!-- <h2 class="nobottommargin ls1 font-body">Concentration.</h2> -->
+                    </div><div class="video-wrap">
+                        <img src="images/01.jpg" alt="" class="hidden-lg">
+                        <img src="images/01-.jpg" alt="" class="visible-lg">
+
+                    </div>
+                </div>
+                <div class="col-xs-6 nopadding half-screen dark videoplay-on-hover">
+                    <div class="vertical-middle ignore-header center">
+                        <!-- <h2 class="nobottommargin ls1 font-body">Travail d'équipe.</h2> -->
+                    </div>
+                    <div class="video-wrap">
+                   <img src="images/02.jpg" alt="" class="hidden-lg">
+                   <img src="images/02-.jpg" alt="" class="visible-lg">
+                    </div>
+                </div>
+                <div class="col-xs-6 nopadding half-screen dark videoplay-on-hover">
+                    <div class="vertical-middle ignore-header center">
+                        <!-- <h2 class="nobottommargin ls1 font-body">Du sol au plafond.</h2> -->
+                    </div>
+                    <div class="video-wrap">
+                    <img src="images/03.jpg" alt="" class="hidden-lg">
+                    <img src="images/03-.jpg" alt="" class="visible-lg">
+                    </div>
+                </div>
+                <div class="col-xs-6 nopadding half-screen dark videoplay-on-hover">
+                    <div class="vertical-middle ignore-header center">
+                        <!-- <h2 class="nobottommargin ls1 font-body">Technicité.</h2> -->
+                    </div>
+                    <div class="video-wrap">
+                    <img src="images/04.jpg" alt="" class="hidden-lg">
+                    <img src="images/04-.jpg" alt="" class="visible-lg">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <script>
+                jQuery(document).ready(function($){
+                    $('.videoplay-on-hover').hover( function(){
+                        if( $(this).find('video').length > 0 ) {
+                            $(this).find('video').get(0).play();
+                        }
+                    }, function(){
+                        if( $(this).find('video').length > 0 ) {
+                            $(this).find('video').get(0).pause();
+                        }
+                    });
+                });
+            </script>
+
+        </section><!-- #slider end -->
+
+        <!-- Content
+        ============================================= -->
+
+        <section id="content">
+
+            <div class="content-wrap nopadding">
+
+                <div id="section-about" class="center page-section bottompadding-xs" >
+
+                    <div class="container clearfix">
+
+                        <h2 class="divcenter bottommargin font-body" style="max-width: 700px; font-size: 40px;">Le FlyIn LFBK à Saint Yan</h2>
+
+                        <p class="lead divcenter " style="max-width: 800px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima sit labore, non, excepturi praesentium quos, eveniet tempora accusamus hic amet a nostrum ipsum fugiat quibusdam tenetur, asperiores molestias sed. Omnis.</p>
+
+                        <!-- <p class="bottommargin" style="font-size: 16px;"><a href="/about" class="more-link">En savoir plus <i class="icon-angle-right"></i></a></p> -->
+
+                        <div class="clear"></div>
+
+                        <!-- <div class="row topmargin-lg divcenter" style="max-width: 1000px;">
+
+                            <div class="col-sm-4 bottommargin">
+
+                                <div class="team">
+                                    <div class="team-image">
+                                        <img src="images/team/1.jpg" alt="John Doe">
+                                        <div class="team-overlay">
+                                            <div class="team-social-icons">
+                                                <a href="#" class="social-icon si-borderless si-small si-facebook" title="Facebook">
+                                                    <i class="icon-facebook"></i>
+                                                    <i class="icon-facebook"></i>
+                                                </a>
+                                                <a href="#" class="social-icon si-borderless si-small si-twitter" title="Twitter">
+                                                    <i class="icon-twitter"></i>
+                                                    <i class="icon-twitter"></i>
+                                                </a>
+                                                <a href="#" class="social-icon si-borderless si-small si-github" title="Github">
+                                                    <i class="icon-github"></i>
+                                                    <i class="icon-github"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="team-desc team-desc-bg">
+                                        <div class="team-title"><h4>John Doe</h4><span>CEO</span></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm-4 bottommargin">
+
+                                <div class="team">
+                                    <div class="team-image">
+                                        <img src="images/team/2.jpg" alt="Josh Clark">
+                                        <div class="team-overlay">
+                                            <div class="team-social-icons">
+                                                <a href="#" class="social-icon si-borderless si-small si-twitter" title="Twitter">
+                                                    <i class="icon-twitter"></i>
+                                                    <i class="icon-twitter"></i>
+                                                </a>
+                                                <a href="#" class="social-icon si-borderless si-small si-linkedin" title="LinkedIn">
+                                                    <i class="icon-linkedin"></i>
+                                                    <i class="icon-linkedin"></i>
+                                                </a>
+                                                <a href="#" class="social-icon si-borderless si-small si-flickr" title="Flickr">
+                                                    <i class="icon-flickr"></i>
+                                                    <i class="icon-flickr"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="team-desc team-desc-bg">
+                                        <div class="team-title"><h4>Mary Jane</h4><span>Co-Founder</span></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm-4 bottommargin">
+
+                                <div class="team">
+                                    <div class="team-image">
+                                        <img src="images/team/3.jpg" alt="Mary Jane">
+                                        <div class="team-overlay">
+                                            <div class="team-social-icons">
+                                                <a href="#" class="social-icon si-borderless si-small si-twitter" title="Twitter">
+                                                    <i class="icon-twitter"></i>
+                                                    <i class="icon-twitter"></i>
+                                                </a>
+                                                <a href="#" class="social-icon si-borderless si-small si-vimeo" title="Vimeo">
+                                                    <i class="icon-vimeo"></i>
+                                                    <i class="icon-vimeo"></i>
+                                                </a>
+                                                <a href="#" class="social-icon si-borderless si-small si-instagram" title="Instagram">
+                                                    <i class="icon-instagram"></i>
+                                                    <i class="icon-instagram"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="team-desc team-desc-bg">
+                                        <div class="team-title"><h4>Josh Clark</h4><span>Sales</span></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div> -->
+
                     </div>
 
-                <img src="images/design/transparent.png" data-src="images/slider/laptopglasses.png" style="display:none" alt="lorem ipsum dolor sit"/>  
-                
-                <video id="video1" class="video-js vjs-default-skin hidden-xs" poster="videos/CameraLens/CameraLens.jpg"  muted="" autoplay="" loop="" preload="">
-                    <source src="videos/Film_arbatou.mp4" type='video/mp4' />
-                    <source src="videos/Film_arbatou.webm" type='video/webm' />
-                    <!-- <source src="videos/Film_arbatou.ogv" type='video/ogg' /> -->
-                </video>
-                    
-                
-                
-            </div>
-            <!-- end of slide -->
-          
-        </div> <!-- end of masterslider -->
-         
-        <a href="#firstSection"><i class="fa fa-chevron-down" id="go-down"></i></a>
-        
-    </div><!-- end of slider-wrapper -->
-    
-    <span id="nav-begins"></span><!-- place before navigation bar-->
-    <div class="container-wrapper navigation">
-        <nav class="navbar navbar-default" role="navigation">
-        
-            <div class="container">
-            
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                    <a class="navbar-brand" href="/">
-                        <img src="images/front/arbatouligne.svg"  />
-                    </a>
-                    <ul class="mini"></ul><!-- mobile navigation -->
-                </div><!-- .navbar-header -->
-                
-                <div class="collapse navbar-collapse">
-                    <div class="right">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="/">Home</a></li>
-                            <li class=""><a href="/presta">Prestations</a></li>
-                            <li class=""><a href="/grimpes">Grimpes</a></li>
-                            <li class=""><a href="/blog">Blog</a></li>
-                            <li class=""><a href="/contact">Contact</a> </li>
-                        </ul>
+                </div>
+                <div class="section dark nomargin">
+                        <div class="divcenter center" style="max-width: 900px;">
+                            <h2 class="nobottommargin t300 ls1"><span class="bigNumber">24</span> <span class="bigNumber">25</span> et <span class="bigNumber">26</span> Juin 2017 <a href="#" data-scrollto="#template-contactform" data-offset="140" data-easing="easeInOutExpo" data-speed="1250" class="button button-border button-circle button-light button-large notopmargin nobottommargin" style="position: relative; top: -3px;">Pilote ? Inscrivez votre avion</a></h2>
+                        </div>
                     </div>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-            
-        </nav>
-    </div>
-   
-    <section class="content-section" id="firstSection">
-        <div class="container">
-            <p class="anim fadeInUp">
-                La grimpe encadrée dans les arbres est une activité sportive d'Education à l'Environnement. <br>
-                L'Ethique d'Arbatou est d'avoir le minimum d'impact sur le milieu et le maximum d'effet sur les humains, <br> en grimpant à la cime d'un arbre en toute sécurité.
-            </p>
-        </div>
-    </section>
-    <section class="content-section" id="firstSection2" style="background-color: #f9f8f8;">
-        <div class="container">
-            <h1 class="anim fadeInDown"><i class="fa fa-th"></i>Ateliers à la <span>Carte</span></h1>
-        </div>
-    </section>
+                     <!--    <div class="promo promo-dark promo-flat promo-full ">
+                        <div class="container clearfix">
+                            <h3>Tu est <span>Pupille</span> , <span>Poussin</span> , ou <span>Benjamin</span> Renseigne toi sur <span>l'école de volley</span></h3>
+                            <a href="/poussin" class="button button-xlarge button-rounded">Je me renseigne</a>
+                        </div>
+                    </div> -->
 
-    <section class="feature-list">
-        <div class="container">
-            
-        
-            <div class="col-lg-4 feature anim fadeInLeft" data-wow-delay="0.25s">
-                <i class="glypharbatou-cordeasoi"></i>
-                <div class="content">
-                    <h4>Corde à soi</h4>
-                    <p>Déplacement dans l'arbre, auto assurance et confiance en soi. </p>
+                <div id="section-blog" class="page-section notoppadding">
+
+
+                    <div class="section nobottommargin notopmargin">
+                        <div class="container clearfix">
+                            <script>
+
+            var articles = <%- JSON.stringify(articles) %>;
+        // console.log(articles);
+                            </script>
+                            <div class="row  clearfix">
+                                <h2 class="center uppercase t300 ls3 font-body colorwhite">À la Une</h2>
+                                
+                                 <% for(var i=0; i< articles.length ; i++){%>
+                                <div class="ipost col-sm-6 bottommargin clearfix">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="entry-image nobottommargin">
+                                                
+                                                <% if(articles[i].images.length >= 1){%>
+                                                <a href="article/<%- articles[i].id %>/<%- articles[i].rewriteurl%>"><img src="image/resized2/<%-articles[i].images[0].filename %>" class="image_fade"alt="<%-articles[i].images[0].alt %>"></a>
+
+                                                <%} %>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" style="margin-top: 20px;">
+                                             <% if(articles[i].category){%>
+                                        
+                                            <span class="before-heading colorwhite" style="font-style: normal;"><%- articles[i].category.name %> </span>
+                                            <%}%>
+                                            <div class="entry-title">
+                                                <h3 class="t400 colorwhite2" style="font-size: 22px;"><a href="article/<%- articles[i].id %>/<%- articles[i].rewriteurl%>"><%- articles[i].title %></a></h3>
+                                            </div>
+                                            <div class="entry-content">
+                                                <a href="article/<%- articles[i].id %>/<%- articles[i].rewriteurl%>" class="more-link colorwhite2">En savoir plus <i class="icon-angle-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%} %>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
                 </div>
-            </div>
-            
-            <div class="col-lg-4 feature anim fadeInRight" data-wow-delay="0.25s">
-                <i class="glypharbatou-assur"></i>
-                <div class="content">
-                    <h4>Moulinette</h4>
-                    <p>Coopération et confiance en l'autre. Un assureur et un grimpeur.</p>
+
+                <div id="section-team" class="page-section notoppadding nobottompadding" >
+
+                    <div class="section nomargin">
+                        <div class="container clearfix">
+                            <div class="divcenter center" style="max-width: 900px;">
+                                <h2 class="nobottommargin t300 ls1 colorwhite">Voici les différents Avions inscrits pour l'éditions 2017.</h2>
+                                <p class="colorwhite2">Avec déjà 8 avions inscrits dont certains incontournable. Le spéctacle 2017 va être à la hauteur.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Items
+                    ============================================= -->
+                    <div id="portfolio" class="portfolio-nomargin portfolio-full portfolio-masonry mixed-masonry clearfix">
+
+                        <article class="portfolio-item pf-media pf-icons wide">
+                            <div class="portfolio-image">
+                                <a href="#">
+                                    <img src="images/avions/800-2.jpg" alt="Open Imagination">
+                                </a>
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-desc">
+                                        <h3><a href="#">C-46 Navy</a></h3>
+                                        <span><a href="#">Robert Boulanger</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="portfolio-item pf-illustrations">
+                            <div class="portfolio-image">
+                                <a href="#">
+                                    <img src="images/avions/400-1.jpg" alt="Locked Steel Gate">
+                                </a>
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-desc">
+                                        <h3><a href="#">Shakespear B23 </a></h3>
+                                        <span><a href="#">Alexis Momcilovic</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="portfolio-item pf-graphics pf-uielements">
+                            <div class="portfolio-image">
+                                <a href="#">
+                                    <img src="images/avions/400-2.jpg" alt="Mac Sunglasses">
+                                </a>
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-desc">
+                                        <h3><a href="#">Navy 238</h3>
+                                        <span><a href="#">Paris Thierry</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="portfolio-item pf-media pf-icons wide">
+                            <div class="portfolio-image">
+                                <a href="#">
+                                    <img src="images/avions/800x300-2.jpg" alt="Open Imagination">
+                                </a>
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-desc">
+                                        <h3><a href="#">Triplette suedoise </a></h3>
+                                        <span><a href="#">Les Anonymes Malfrats</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="portfolio-item pf-uielements pf-media wide">
+                            <div class="portfolio-image">
+                                <a href="#">
+                                    <img src="images/avions/800x300-1.jpg" alt="Open Imagination">
+                                </a>
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-desc">
+                                        <h3><a href="#">Big Joe </a></h3>
+                                        <span><a href="#">Air France KLM</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="portfolio-item pf-media pf-icons">
+                            <div class="portfolio-image">
+                                <a href="#">
+                                    <img src="images/avions/400-3.jpg" alt="Open Imagination">
+                                </a>
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-desc">
+                                        <h3><a href="#">PP-48-B </a></h3>
+                                        <span><a href="#">Anna Lisa Suarez</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="portfolio-item pf-uielements pf-icons">
+                            <div class="portfolio-image">
+                                <a href="#">
+                                    <img src="images/avions/400-4.jpg" alt="Backpack Contents">
+                                </a>
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-desc">
+                                        <h3><a href="#">GreenFog</a></h3>
+                                        <span><a href="#">Anonyme</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div><!-- #portfolio end -->
+
+                    <!-- Portfolio Script
+                    ============================================= -->
+                    <script type="text/javascript">
+
+                        jQuery(window).load(function(){
+
+                            var jQuerycontainer = jQuery('#portfolio');
+
+                            jQuerycontainer.isotope({
+                                transitionDuration: '0.65s',
+                                masonry: {
+                                    columnWidth: jQuerycontainer.find('.portfolio-item:not(.wide)')[0]
+                                }
+                            });
+
+                            jQuery(window).resize(function() {
+                                jQuerycontainer.isotope('layout');
+                                SEMICOLON.portfolio.portfolioDescMargin();
+                            });
+
+                            var t = setTimeout(function(){ SEMICOLON.portfolio.portfolioDescMargin(); }, 200);
+
+                        });
+
+                    </script><!-- Portfolio Script End -->
+
+
                 </div>
-            </div>
-            
-            
-            <div class="col-lg-4 feature anim fadeInDown" data-wow-delay="0.25s">
-                <i class="glypharbatou-picvert"></i>
-                <div class="content">
-                    <h4>Éducation Environnement</h4>
-                    <p>Connaissances en sciences naturelles, approches ludiques et sensorielles.</p>
+
+
+                    <div class="section dark nomargin">
+                        <div class="divcenter center" style="max-width: 900px;">
+                            <h2 class="nobottommargin t300 ls1">Pilote ? <a href="#" data-scrollto="#template-contactform" data-offset="140" data-easing="easeInOutExpo" data-speed="1250" class="button button-border button-circle button-light button-large notopmargin nobottommargin" style="position: relative; top: -3px;">Inscrivez votre avion</a></h2>
+                        </div>
+                    </div>
+
+                 <!--    <div class="promo promo-dark promo-flat promo-full ">
+                        <div class="container clearfix">
+                            <h3>Tu est <span>Pupille</span> , <span>Poussin</span> , ou <span>Benjamin</span> Renseigne toi sur <span>l'école de volley</span></h3>
+                            <a href="/poussin" class="button button-xlarge button-rounded">Je me renseigne</a>
+                        </div>
+                    </div> -->
+
+                    <div class="section parallax nomargin dark" style="background: url('images/09.jpg') center center / cover no-repeat; padding: 150px 0;" data-stellar-background-ratio="2" data-stellar-vertical-offset="250">
+
+                        <div class="container clearfix">
+
+                            <div class="col_two_fifth nobottommargin">&nbsp;</div>
+ 
+                            <div class="col_three_fifth nobottommargin col_last">
+
+                                <div class="fslider testimonial testimonial-full nobgcolor noborder noshadow nopadding" data-arrows="false">
+                                    <div class="flexslider">
+                                        <div class="slider-wrap">
+                                            <div class="slide">
+                                                <div class="testi-content">
+                                                    <p> Une foi que vous savez jouer au volley, tout les autres sport vous semblerons facile.</p>
+                                                    <div class="testi-meta">
+                                                        Alexis
+                                                        <span>Développeur Web</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slide">
+                                                <div class="testi-content">
+                                                    <p>Depuis 30 ans que je pratique le volley, je ne me suis jamais lassé et je prend toujours autan de plaisir à jouer</p>
+                                                    <div class="testi-meta">
+                                                        Keke
+                                                        <span>Enseignant spécialisé</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slide">
+                                                <div class="testi-content">
+                                                    <p>Il est très compliqué de progresser, mais quelques touche de balle suffise pour s'amuser.</p>
+                                                    <div class="testi-meta">
+                                                        Arthur
+                                                        <span>Lycéen</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                     <div class="container topmargin-lg clearfix">
+                    <h2 class="center uppercase t300 ls3 font-body">Un très très grand merci à nos sponsores</h2>
+                    <div id="oc-clients" class="owl-carousel topmargin image-carousel">
+
+                        <div class="oc-item"><a href="#"><img src="images/clients/1.png" alt="Clients"></a></div>
+                        <div class="oc-item"><a href="#"><img src="images/clients/2.png" alt="Clients"></a></div>
+                        <div class="oc-item"><a href="#"><img src="images/clients/3.png" alt="Clients"></a></div>
+                        <div class="oc-item"><a href="#"><img src="images/clients/4.png" alt="Clients"></a></div>
+                        <div class="oc-item"><a href="#"><img src="images/clients/5.png" alt="Clients"></a></div>
+                        <div class="oc-item"><a href="#"><img src="images/clients/6.png" alt="Clients"></a></div>
+                        <div class="oc-item"><a href="#"><img src="images/clients/7.png" alt="Clients"></a></div>
+                        <div class="oc-item"><a href="#"><img src="images/clients/8.png" alt="Clients"></a></div>
+                        <div class="oc-item"><a href="#"><img src="images/clients/9.png" alt="Clients"></a></div>
+                        <div class="oc-item"><a href="#"><img src="images/clients/10.png" alt="Clients"></a></div>
+
+                    </div>
+
+                    <script type="text/javascript">
+
+                        jQuery(document).ready(function($) {
+
+                            var ocClients = $("#oc-clients");
+
+                            ocClients.owlCarousel({
+                                margin: 80,
+                                loop: true,
+                                nav: false,
+                                autoplay: true,
+                                dots: false,
+                                autoplayHoverPause: true,
+                                responsive:{
+                                    0:{ items:2 },
+                                    480:{ items:3 },
+                                    768:{ items:4 },
+                                    992:{ items:5 },
+                                    1200:{ items:6 }
+                                }
+                            });
+
+                        });
+
+                    </script>
+
                 </div>
+                </div>
+
+                
+               
+
+                <div id="section-contact" class="page-section ">
+
+                    <div class="row noleftmargin norightmargin bottommargin-lg common-height">
+                        <div id="headquarters-map" class="col-md-8 col-sm-6 gmap hidden-xs"></div>
+                        <div class="col-md-4 col-sm-6" style="background-color: #F5F5F5;">
+                            <div class="col-padding max-height">
+                                <h3 class="font-body t400 ls1">Notre Aérodrome</h3>
+
+                                <div style="font-size: 16px; line-height: 1.7;">
+                                    <address style="line-height: 1.7;">
+                                       
+                                            Aérodrome St Yan<br>
+                                             71600 Saint-Yan <br>
+                                             FRANCE <br>
+                                    </address>
+
+                                </div>
+                                 <h3 class="font-body t400 ls1">Nous contactez</h3>
+                                 <div style="font-size: 16px; line-height: 1.7;">
+                                    
+
+                                    <abbr title="Béatrice"><strong>Béatrice:</strong></abbr> 06 80 38 74 07<br>
+                                    <abbr title="Thierry"><strong>Thierry:</strong></abbr> 06 11 73 33 29<br>
+                                    <abbr title="Email Address"><strong>Email:</strong></abbr> beatrice.nutrimarketing@wanadoo.fr
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+                    <script type="text/javascript" src="js/front/jquery.gmap.js"></script>
+
+                    <script type="text/javascript">
+
+                        jQuery(window).load( function(){
+                            jQuery('#headquarters-map').gMap({
+                                address: "Aérodrome St Yan, 71600 Saint-Yan, France",
+                                maptype: 'ROADMAP',
+                                zoom: 6,
+                                markers: [
+                                    {
+                                        address: "Aérodrome St Yan, 71600 Saint-Yan, France",
+                                        html: "Aérodrome St Yan",
+                                        icon: {
+                                            image: "images/icons/map-icon-red.png",
+                                            iconsize: [32, 39],
+                                            iconanchor: [14,44]
+                                        }
+                                    }
+                                ],
+                                doubleclickzoom: false,
+                                controls: {
+                                    disableDoubleClickZoom: false,
+                                    panControl: true,
+                                    zoomControl: true,
+                                    mapTypeControl: false,
+                                    scaleControl: true,
+                                    streetViewControl: false,
+                                    overviewMapControl: false
+                                },
+                                styles: [
+                                {
+                                    "featureType":"all",
+                                    "elementType":"labels.text.fill",
+                                    "stylers":[{"saturation":36},{"color":"#6497b1"},{"lightness":40}]
+                                },
+                                {
+                                    "featureType":"all",
+                                    "elementType":"labels.text.stroke",
+                                    "stylers":[
+                                        {"visibility":"off"},
+                                       
+                                    ]
+                                },
+                                {
+                                    "featureType":"all",
+                                    "elementType":"labels.icon",
+                                    "stylers":[{"visibility":"off"}]
+                                },
+
+                               {
+                                    "featureType":"administrative",
+                                    "elementType":"geometry.fill",
+                                    "stylers":[   {
+                                    "color":"#6497b1"},   {
+                                    "lightness":20}]},
+                               {
+                                    "featureType":"administrative",
+                                    "elementType":"geometry.stroke",
+                                    "stylers":[   {
+                                    "color":"#005b96"},
+                                       {"lightness":17},
+                                       {"weight":1.2}]},
+                                {
+                                    "featureType":"administrative",
+                                    "elementType":"labels",
+                                    "stylers":[   {
+                                    "visibility":"off"}]},
+                                {
+                                    "featureType":"administrative.country",
+                                    "elementType":"all",
+                                    "stylers":[   {
+                                    "visibility":"simplified"}]},
+                                {
+                                    "featureType":"administrative.country",
+                                    "elementType":"geometry",
+                                    "stylers":[   {
+                                    "visibility":"simplified"}]},
+                                {
+                                    "featureType":"administrative.country",
+                                    "elementType":"labels.text",
+                                    "stylers":[   {
+                                    "visibility":"simplified"}]},
+                                {
+                                    "featureType":"administrative.province",
+                                    "elementType":"all",
+                                    "stylers":[   {
+                                    "visibility":"off"}]},
+                                {
+                                    "featureType":"administrative.locality",
+                                    "elementType":"all",
+                                    "stylers":[   {
+                                    "visibility":"simplified"},
+                                {
+                                    "saturation":"-100"},
+                                {
+                                    "lightness":"30"}]},
+                                {
+                                    "featureType":"administrative.neighborhood",
+                                    "elementType":"all",
+                                    "stylers":[   {
+                                    "visibility":"off"}]},
+                                {
+                                    "featureType":"administrative.land_parcel",
+                                    "elementType":"all",
+                                    "stylers":[   {
+                                    "visibility":"off"}]},
+                                {
+                                    "featureType":"landscape",
+                                    "elementType":"all",
+                                    "stylers":[   {
+                                    "visibility":"simplified"},
+                                    {"gamma":"1.00"},
+                                    {"lightness":"0"}]
+                                },
+                                {
+                                    "featureType":"landscape",
+                                    "elementType":"geometry",
+                                    "stylers":[   {
+                                    "color":"#005b96"},
+                                {
+                                    "lightness":20}]},
+                                       {
+                                    "featureType":"landscape.man_made",
+                                    "elementType":"all",
+                                    "stylers":[   {
+                                    "lightness":"0"}]},
+                                       {
+                                    "featureType":"poi",
+                                    "elementType":"all",
+                                    "stylers":[   {
+                                    "visibility":"off"}]},
+                                       {
+                                    "            featureType":"poi",
+                                    "elementType":"geometry",
+                                    "stylers":[   {
+                                    "color":"#011f4b"},
+                                       {
+                                    "lightness":21}]},
+                                       {
+                                    "featureType":"road",
+                                    "elementType":"geometry",
+                                    "stylers":[   {
+                                    "visibility":"simplified"}]},
+                                       {
+                                    "featureType":"road.highway",
+                                    "elementType":"geometry.fill",
+                                    "stylers":[   {
+                                    "color":"#011f4b"},
+                                       {
+                                    "lightness":17}]},
+                                       {
+                                    "featureType":"road.highway",
+                                    "elementType":"geometry.stroke",
+                                    "stylers":[   {
+                                    "color":"#011f4b"},
+                                       {
+                                    "lightness":29},
+                                       {
+                                    "weight":0.2}]},
+                                       {
+                                    "featureType":"road.arterial",
+                                    "elementType":"geometry",
+                                    "stylers":[   {
+                                    "color":"#011f4b"},
+                                       {
+                                    "lightness":18}]},
+                                       {
+                                    "featureType":"road.local",
+                                    "elementType":"geometry",
+                                    "stylers":[   {
+                                    "color":"#011f4b"},
+                                       {
+                                    "lightness":16}]},
+                                       {
+                                    "featureType":"transit",
+                                    "elementType":"geometry",
+                                    "stylers":[   {
+                                    "color":"#011f4b"},
+                                       {
+                                    "lightness":19}]},
+                                       {
+                                    "featureType":"water",
+                                    "elementType":"geometry",
+                                    "stylers":[   {
+                                    "color":"#009686"},
+                                       {
+                                    "lightness":17}]}]
+                            });
+                        });
+
+                    </script>
+
+                    <div class="container clearfix">
+
+                        <div class="divcenter topmargin" style="max-width: 850px;">
+
+                            <div id="contact-form-result" data-notify-type="success" data-notify-msg="<i class=icon-ok-sign></i> Message Sent Successfully!"></div>
+
+                            <form class="nobottommargin" id="template-contactform" name="template-contactform" action="include/sendemail.php" method="post">
+
+                                <div class="form-process"></div>
+
+                                <div class="col_half">
+                                    <input type="text" id="template-contactform-name" name="template-contactform-name" value="" class="sm-form-control border-form-control required" placeholder="Nom & Prénom*" required/>
+                                </div>
+                                <div class="col_half col_last">
+                                    <input type="email" id="template-contactform-email" name="template-contactform-email" value="" class="required email sm-form-control border-form-control" placeholder="Email" />
+                                </div>
+
+                                <div class="clear"></div>
+
+                                <div class="col_one_third">
+                                    <input type="text" id="template-contactform-phone" name="template-contactform-phone" value="" class="sm-form-control border-form-control" placeholder="Téléphone" />
+                                </div>
+
+                                <div class="col_two_third col_last">
+                                    <input type="text" id="template-contactform-subject" name="template-contactform-subject" value="" class="required sm-form-control border-form-control" placeholder="Objet *" required />
+                                </div>
+
+                                <div class="clear"></div>
+
+                                <div class="col_full">
+                                    <textarea class="required sm-form-control border-form-control" id="template-contactform-message" name="template-contactform-message" rows="7" cols="30" placeholder="Message *" required></textarea>
+                                </div>
+
+                                <div class="col_full center">
+                                    <button class="button button-border button-circle t500 noleftmargin topmargin-sm" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Envoyer</button>
+                                    <br>
+                                    <small style="display: block; font-size: 13px; margin-top: 15px;">Nous faisons de notre mieux pour vour répondre rapidements</small>
+                                </div>
+
+                                <div class="clear"></div>
+
+                                <div class="col_full hidden">
+                                    <input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="sm-form-control" />
+                                </div>
+
+                            </form>
+
+                            <script type="text/javascript">
+
+                                $("#template-contactform").validate({
+                                    submitHandler: function(form) {
+                                        $('.form-process').fadeIn();
+                                        $(form).ajaxSubmit({
+                                            target: '#contact-form-result',
+                                            success: function() {
+                                                $('.form-process').fadeOut();
+                                                $(form).find('.sm-form-control').val('');
+                                                $('#contact-form-result').attr('data-notify-msg', $('#contact-form-result').html()).html('');
+                                                SEMICOLON.widget.notifications($('#contact-form-result'));
+                                            }
+                                        });
+                                    }
+                                });
+
+                            </script>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="col-lg-4 feature anim fadeInLeft" data-wow-delay="0.25s">
-                <i class="glypharbatou-slak"></i>
-                <div class="content">
-                    <h4>Slack line</h4>
-                    <p>Équilibre et concentration. </p>
-                </div>
-            </div>
-             <div class="col-lg-4 feature anim fadeInDown" data-wow-delay="0.25s">
-                <i class="glypharbatou-tyro"></i>
-                <div class="content">
-                    <h4>Tyro</h4>
-                    <p>Sensationnel et spectaculaire.</p>
-                </div>
-            </div>
+        </section><!-- #content end -->
 
-            <div class="col-lg-4 feature anim fadeInDown" data-wow-delay="0.25s">
-                <i class="glypharbatou-pendul"></i>
-                <div class="content">
-                    <h4>Saut pendulaire</h4>
-                    <p>Spectaculaire et sensationnel. </p>
-                </div>
-            </div>
-            
-            
+        <%- include footer.ejs %>
 
-            <div class="col-lg-4 feature anim fadeInRight" data-wow-delay="0.25s">
-                <i class="glypharbatou-hamac"></i>
-                <div class="content">
-                    <h4>Hamac</h4>
-                    <p>Petite pause, goûter perché ou nuit en hamac, en filet ou en plate-forme. </p>
-                </div>
-            </div>
-            <div class="col-lg-4 feature anim fadeInLeft" data-wow-delay="0.25s">
-                <i class="glypharbatou-grimpe"></i>
-                <div class="content">
-                    <h4>Arbolonge</h4>
-                    <p>Technique de grimpe en autonomie avancée. </p>
-                </div>
-            </div>
-            
-            <div class="col-lg-4 feature anim fadeInRight" data-wow-delay="0.25s">
-                <i class="glypharbatou-guitar"></i>
-                <div class="content">
-                    <h4>Arbazik</h4>
-                    <p>Installation de musiciens, et artistes en tous genres...!</p>
-                </div>
-            </div>
+    </div><!-- #wrapper end -->
 
-           
-            <!-- End of second row --> 
-            
-        </div>
-    </section><!-- .feature-list -->
-    
-    
-    
-    
-  
-    <section class="content-section parallax-bg-1" data-stellar-offset-parent="true" data-stellar-background-ratio="0.50" data-stellar-vertical-offset="500">
-        <span class="shadows"></span>
-        <div class="bg-height"></div>
-        <!-- <div class="video-wrapper">
-            <video id="video1" class="video-js vjs-default-skin" poster="videos/RecordPlayer/poster.jpg" width="1600" height="901" muted="" autoplay="" loop="" preload="">
-                <source src="videos/RecordPlayer/RecordPlayer.mp4" type='video/mp4' />
-                <source src="videos/RecordPlayer/RecordPlayer.webm" type='video/webm' />
-                <source src="videos/RecordPlayer/RecordPlayer.ogv" type='video/ogg' />
-            </video>
-        </div> -->
-      
-    </section>
-    <section class="content-section anim fadeInDown" data-wow-delay="0.25s">
-            <div class="container">
-                <h1><i class="fa  fa-wheelchair"></i></h1>
-                <p>
-                   Hormis le vertige, nous pouvons faire face à presque tous les handicaps. <br> N'hésitez pas à nous demander plus d'informations.
-                </p>
-            </div>
-    </section><!-- .content-section -->
-    
-    <!-- .content-section .form -->
-    
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <!-- Go To Top
+    ============================================= -->
+    <div id="gotoTop" class="icon-angle-up"></div>
 
-  ga('create', 'UA-68126193-1', 'auto');
-  ga('send', 'pageview');
+    <!-- Footer Scripts
+    ============================================= -->
+    <script type="text/javascript" src="js/front/functions.js"></script>
 
-</script>
+</body>
+
+
+
+

@@ -1,0 +1,71 @@
+ <!-- Sidebar
+                    ============================================= -->
+                    <div class="sidebar bottommargin col_last clearfix">
+                        <div class="sidebar-widgets-wrap">
+
+                            <div class="widget clearfix">
+                                <h4><%- __('popular') %></h4>
+
+                                   
+
+
+                                        <div class="tab-content clearfix" id="tabs-1">
+                                            <div id="popular-post-list-sidebar">
+                                                 <% if(mostseen.length){%>
+                                                     <% for(var i=0; i< mostseen.length ; i++){%>
+                                                         <div class="spost clearfix">
+                                                            <div class="entry-image">
+                                                                 <% if(mostseen[i].images.length){%>
+                                                                    <a href="article/<%- mostseen[i].id %>/<%- mostseen[i].rewriteurl %>" class="nobg"><img class="img-square" src="image/resized2/<%- mostseen[i].images[0].filename %>" alt=""></a>
+                                                                 <%}else{%>
+                                                                    <a href="article/<%- mostseen[i].id %>/<%- mostseen[i].rewriteurl %>" class="nobg"><img class="img-square" src="images/magazine/small/2.jpg" alt=""></a>
+                                                                 <%}%>
+                                                            </div>
+                                                            <div class="entry-c">
+                                                                <div class="entry-title">
+                                                                    <h4><a href="article/<%- mostseen[i].id %>/<%- mostseen[i].rewriteurl %>"><%- mostseen[i].title %></a></h4>
+                                                                </div>
+                                                                <ul class="entry-meta">
+                                                                     <% if(mostseen[i].comments.length){%>
+                                                                        <li title="Nombre de commentaires"><i class="icon-comments-alt"></i>
+                                                                            <%- mostseen[i].comments.length %>
+                                                                        </li>
+                                                                     <%}%>
+                                                                    <li title="Nombre de vues"><i class="icon-line-eye"></i> <%- mostseen[i].nbView %></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                     <%}%>
+                                                 
+                                                 <%}%>
+                                            </div>
+                                        </div>
+                                        
+
+
+
+                            </div>
+                            
+                            
+                            
+
+                            
+
+                            <div class="widget clearfix margintop">
+
+                                <h4><%- __('category') %></h4>
+                                <div class="tagcloud">
+                                     <% if(categories){%>
+                                         <% for(var i=0; i< categories.length ; i++){%>
+                                             
+                                    <a href="blog/category/<%- categories[i].id %>/<%- categories[i].name %>"><%- categories[i].name %></a>
+                                         <%}%>
+                                     <%}%>
+                                    
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div><!-- .sidebar end -->

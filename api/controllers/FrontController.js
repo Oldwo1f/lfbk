@@ -7,20 +7,53 @@ var truncate = require('html-truncate');
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
-module.exports = {
+module.exports = { 
 	home:function(req,res,next){
 		req.locale = req.locale || 'en'
 		moment.locale(req.locale);
-		res.status(200).view('front/index',{
-						// articles:articles,
-						title: req.__('SEO_HOME_title'),
-						keyword: req.__('SEO_HOME_keyword'),
-						description:req.__('SEO_HOME_description'),
-						scripturl:'home.js',
-						menu:'home',
-						baseurl:'',
 
-					})
+		var articlesPromise = Article.find({status:'actif'}).sort('date DESC')
+	    .limit(4).populateAll();
+
+		articlesPromise
+	    .then(function(articles) {   
+	        var articlesWithAuthorsPromises = articles.map(function(article) {
+	            var authorsPromises = article.authors.map(function(author) {
+	                return User.findOne(author.id).populateAll();
+	            });
+
+	            return Promise.all(authorsPromises)
+	                  .then(function(fullfilledAuthors) {
+	                  	  article = article.toObject()
+	                      article.authors = fullfilledAuthors;
+	                      article.content = truncate(article.content, 250)
+	                      return article;
+	                   })
+	        })
+
+	        return Promise.all(articlesWithAuthorsPromises)
+	    })
+	   .then(function(articles) {
+	   		
+	   		// result.articles = articles
+	   		
+	   		
+	   		res.status(200).view('front/index',{
+				// articles:articles,
+				articles: articles,
+				title: req.__('SEO_HOME_title'),
+				keyword: req.__('SEO_HOME_keyword'),
+				description:req.__('SEO_HOME_description'),
+				scripturl:'home.js',
+				menu:'home',
+				baseurl:'',
+
+			})
+
+
+	    })
+
+		
 	},
 	article:function(req,res,next){
 		console.log(req.params.id);
@@ -899,6 +932,18 @@ module.exports = {
 				title:req.__('SEO_PRESTA_title'),
 				keyword:req.__('SEO_PRESTA_KEYWORD'),
 				description:req.__('SEO_PRESTA_DESCRIPTION')
+			});
+	},	
+	infos:function(req,res) {
+			req.locale = req.locale || 'en'
+			moment.locale(req.locale);
+			return res.view('front/infos',{
+				menu:'presta',
+				scripturl:'portfo.js',
+				baseurl:'',
+				title:req.__('SEO_INFOS_title'),
+				keyword:req.__('SEO_INFOS_KEYWORD'),
+				description:req.__('SEO_INFOS_DESCRIPTION')
 			});
 	},
 	contactEmail:function(req,res,next) {

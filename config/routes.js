@@ -36,7 +36,7 @@ module.exports.routes = {
   //   view: 'homepage'
   // },
   '/admin':'adminController.serveApp',
-  'GET /': 'FrontController.home',
+
 
 
  
@@ -99,18 +99,21 @@ module.exports.routes = {
 
   //FRONT
 
+    'GET /': 'FrontController.home',
+    'GET /home': 'FrontController.home',
 
   // 'GET /grimpes': 'frontController.portfolio',
   // 'GET /projet/:id/*':'frontController.projet',
   'GET /testnotif': 'frontController.testnotif',
   'GET /blog': 'frontController.blog',
   'GET /blog/category/:thiscat': 'frontController.categoryArticle',
+  'GET /blog/category/:thiscat/*': 'frontController.categoryArticle',
   'GET /blog/tags/:thiscat/:tagname': 'frontController.tagArticle',
   'GET /blog/article/:id':'frontController.article',
   'GET /blog/article/:id/*':'frontController.article',
   'POST /article/:itemid/addComment':'frontController.addCommentArticle',
   // 'POST /article/addReponse/:itemid/:projid':'frontController.addReponseArticle',
-  'GET /grimpes': 'frontController.portfolio',
+  'GET /infos': 'frontController.infos',
   'GET /grimpes/category/:thiscat': 'frontController.categoryProject',
   'GET /grimpes/tags/:thiscat/:tagname': 'frontController.tagProject',
   'GET /grimpes/project/:id':'frontController.project',

@@ -30,7 +30,7 @@
 .lastprojectWidget md-card-actions .tablecat{line-height: 16px; margin-right:5px;color:white;background:transparent;border-radius:3px;padding:3px 13px;height: auto;border:1px solid #1c7dfa;white-space: nowrap;}
 .lastprojectWidget md-card md-card-title md-card-title-text:not(:only-child) .md-subhead{height: auto;overflow:hidden;text-overflow:ellipsis;text-wrap:nowrap;color:rgba(255,255,255,0.5);}
 
-#noLastAticleElment{text-align: center;display:flex;justify-content:center;align-items:center;}
+#noLastProjectElment{text-align: center;display:flex;justify-content:center;align-items:center;}
 
 .nbViewsTitle i{font-size: 18px;height: auto;width: auto; vertical-align:baseline; margin-left: 0px;margin-right: 10px;}
 .nbViewsTitle:before{content:' ';margin-right: 7px}

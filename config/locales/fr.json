@@ -12,5 +12,14 @@
 	"SEO_BLOG_description": "SEO_BLOG_description",
 	"SEO_HOME_title": "SEO_HOME_title",
 	"SEO_HOME_keyword": "SEO_HOME_keyword",
-	"SEO_HOME_description": "SEO_HOME_description"
+	"SEO_HOME_description": "SEO_HOME_description",
+	"SEO_INFOS_title": "SEO_INFOS_title",
+	"SEO_INFOS_KEYWORD": "SEO_INFOS_KEYWORD",
+	"SEO_INFOS_DESCRIPTION": "SEO_INFOS_DESCRIPTION",
+	"blog-title": "blog-title",
+	"blog-subtitle": "blog-subtitle",
+	"readmore": "readmore",
+	"popular": "popular",
+	"Lire la suite": "Lire la suite",
+	"category": "category"
 }

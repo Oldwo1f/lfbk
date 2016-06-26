@@ -23,7 +23,7 @@
     "angular-ui-tinymce": "~0.0.15",
     "angular-bootstrap-datetimepicker": "~1.0.1",
     "moment": "~2.13.0",
-    "angular-material": "~1.0.7",
+    "angular-material": "1.0.7",
     "angular-aria": "~1.5.5",
     "angular-file-model": "~0.3.1",
     "ng-file-upload": "~12.0.4",
@@ -41,7 +41,9 @@
     "angular-notification-icons": "~0.4.3",
     "angular-nicescroll": "~0.0.9",
     "genie": "~0.4.0",
-    "ux-genie": "~0.3.3"
+    "ux-genie": "~0.3.3",
+    "angular-gridster": "~0.13.10",
+    "angular-sanitize": "~1.5.7"
   },
   "resolutions": {
     "font-awesome": "4.5.0",

@@ -98,8 +98,8 @@ angular.module('core')
     setTimeout(function(){
       
       $('.lastprojectWidget .RESIZEHEIGHT md-card-title-text').getNiceScroll().resize();
+      $('#noLastProjectElment').css('height' , item.getElementSizeY()-94 +'px')
     },1)
-    $('#noLastAticleElment').css('height' , item.getElementSizeY()-94 +'px')
     $('.card-media ').height(item.getElementSizeY()-125)
     $('.card-media ').width(item.getElementSizeY()-125)
         	
