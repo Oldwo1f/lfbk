@@ -24,6 +24,7 @@ module.exports = {
 	    dateMember : {type:'date'},
 	    lastActivity : {type:'date'},
 
+  		dashboard:{type:'json'},
   		theme:{type:'string',defaultsTo:'bg1'},
   		nbArticles:{type:'int',defaultsTo:0},
         nbProjects:{type:'int',defaultsTo:0},

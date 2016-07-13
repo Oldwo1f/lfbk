@@ -140,6 +140,10 @@ angular.module('core').controller('appController',function ($scope,$rootScope,$a
 $(window).resize(function() {
   height = $(window).height()
   $('.containerLogin').css({'height':height+'px'});
+
+  console.log('RESIZEEEEEEEEEEEEEEEEEEEEEEEEe------------------------------');
+
+
 }).resize()
 
 $(window).load(function(){

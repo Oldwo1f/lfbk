@@ -9,46 +9,46 @@ var IsThere = require("is-there");
 
 
 module.exports = {
-	  saveDash: function (req, res) {
+	//   saveDash: function (req, res) {
 
-	    console.log('SAVE DASH');
+	//     console.log('SAVE DASH');
 	    
-	    console.log(req.body);
+	//     console.log(req.body);
 
-	    fs.writeFile('dash.js',JSON.stringify(req.body), function (err) {
-	      if (err) throw err;
+	//     fs.writeFile('dash.js',JSON.stringify(req.body), function (err) {
+	//       if (err) throw err;
 
-	      console.log('It\'s saved!');
-	      return res.send({reponse: 'saved'});
+	//       console.log('It\'s saved!');
+	//       return res.send({reponse: 'saved'});
 
-	    });
+	//     });
 
 
-	  },
-	  restoreDash: function (req, res) {
+	//   },
+	//   restoreDash: function (req, res) {
     
-	    fs.readFile('dash.js', 'utf8', function (err,data) {
-	      if (err){
-	        return res.status(500).send({});
-	      }
+	//     fs.readFile('dash.js', 'utf8', function (err,data) {
+	//       if (err){
+	//         return res.status(500).send({});
+	//       }
 
-	      console.log('We can read File');
-	      // console.log(data);
-	      var result = JSON.parse(data);
-	      console.log(_.isEmpty(result))
-	      if(_.isEmpty(result))
-	      { 
-	        console.log('nodata');
-	        return res.status(400).send(result);
-	      }else
-	      {
-	        console.log('DATAS SEND');
-	        return res.send(result);
-	      }
+	//       console.log('We can read File');
+	//       // console.log(data);
+	//       var result = JSON.parse(data);
+	//       console.log(_.isEmpty(result))
+	//       if(_.isEmpty(result))
+	//       { 
+	//         console.log('nodata');
+	//         return res.status(400).send(result);
+	//       }else
+	//       {
+	//         console.log('DATAS SEND');
+	//         return res.send(result);
+	//       }
 
 
-	    })
-	},
+	//     })
+	// },
 	addFirstAdmin:function(req,res,next){
 		var user = {};
 		user.name = 'Momcilovic';

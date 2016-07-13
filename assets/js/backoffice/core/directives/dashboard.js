@@ -2,7 +2,11 @@ var winwidth = $(window).width()
 var col=24;
 if(winwidth <=1024){
     console.log('winwidth <=1024');
-    col=16
+    col=12
+}
+if(winwidth <=800){
+    // console.log('winwidth <=800');
+    // col=6
 }
 
 angular.module('core').run(['gridsterConfig', function(gridsterConfig) {
