@@ -73,13 +73,16 @@ module.exports.routes = {
   'POST /api/user/:id/images':'userController.uploadImage',
   'get /api/user/search/:sort/:slug':'userController.search',
   'GET /api/user/searchAutocomplete/:searchText':'userController.searchAutocomplete',
-  'POST /api/saveDash':'userController.saveDash',
-  'GET /api/restoreDash':'userController.restoreDash',
+  'POST /api/user/:id/saveDash':'userController.saveDash',
   
-  // LOGIN
+  //admin
+  'GET /analytics/:period/:metrics':'adminController.analytics',
+  'GET /getBestBlogger':'adminController.getBestBlogger',
+  'GET /countAll':'adminController.countAll',
+  'GET /getNewComments':'adminController.getNewComments',
+  'GET /getNotifications/:page':'adminController.getNotifications',
+  'GET /getSocials':'adminController.getSocials',
 
-  'get /toto' :'testController.toto',
-  'get /peter' :'testController.peter',
  
 
   // 'POST /article/:id/tags/:pk':'ArticleController.addTag',
@@ -104,7 +107,6 @@ module.exports.routes = {
 
   // 'GET /grimpes': 'frontController.portfolio',
   // 'GET /projet/:id/*':'frontController.projet',
-  'GET /testnotif': 'frontController.testnotif',
   'GET /blog': 'frontController.blog',
   'GET /blog/category/:thiscat': 'frontController.categoryArticle',
   'GET /blog/category/:thiscat/*': 'frontController.categoryArticle',

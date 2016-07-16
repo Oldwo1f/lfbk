@@ -1,0 +1,159 @@
+<div class="maincontent">
+	<!-- <div class="toggleEditmode" style="z-index:1000;" ng-click="toogleEditMode()" >
+		<input type="checkbox" ng-model="editionMode" id="switch-editmode" class="sw" checked />
+		<label class="switch2 green" for="switch-editmode" title="Entrer/sortir du mode edition"></label> 
+	</div>
+	<div class="savedash"  ng-click="saveDash()">
+		<a class="btn-circle btn-sm" title="Save Dashboard"><i class="pe-7f-paperclip"></i></a>
+	</div> -->
+	<article class="widget">
+			
+		<header class="widget__header">
+				<div class="widget__icon"><i  class="pe-7s-graph1"></i></div>
+				<div class="widget__title">
+					<span>Analyse du trafic </span> 
+					
+					<span class="dateInTitle">
+						<!-- <span class="nbViewsTitle"><i class="fa fa-eye"></i>{{lastArticle.nbView}}</span>
+						<span>-</span>  -->
+						<span am-time-ago="lastArticle.date"></span>
+						<!-- <span class="dddd">{{lastArticle.date | amDateFormat:'dddd'}}</span>
+						<span class="DD">{{lastArticle.date | amDateFormat:'DD'}}</span>
+						<span class="MM ">{{lastArticle.date | amDateFormat:'MMM'}}</span> -->
+					</span>
+				</div>
+				
+				<div class="titleDropdown">
+					<div class="dropdown">
+					  <button class="btn btn-block blue dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false">
+					    Période
+					    <span class="caret">
+					    	<i class="pe-7g-arrow2-down"></i>
+					    </span>
+					  </button>
+					  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+					    <li role="presentation"><a  ng-click="choosePeriod('week');" >Cette semaine</a></li>
+					    <li role="presentation"><a  ng-click="choosePeriod('lastweek');" >La semaine dernière</a></li>
+					    <li role="presentation"><a  ng-click="choosePeriod('month');">Ce moi</a></li>
+                        <li role="presentation"><a  ng-click="choosePeriod('lastmonth');" >La moi dernier</a></li>
+                        <li role="presentation"><a  ng-click="choosePeriod('year');">Cette année</a></li>
+					  </ul>
+					</div>
+                   
+                </div>
+				<!-- <div class="switcherConfigMode keepThisEvent btn-header" ng-click="toogleEditMode()">
+					<input type="checkbox" ng-model="editionMode" id="switch-editmode" class="sw" checked />
+					<label class="switch2 green" for="switch-editmode" title="Entrer/sortir du mode edition"></label> 
+				</div>
+				<div  class="keepThisEvent btn-header" ng-click="saveDash()" title="Save Dashboard"><i class="pe-7s-diskette"></i></div>
+				<div  class="keepThisEvent btn-header" ng-click="restoreDefault()" title="Restaurer le dashboard par default"><i class="pe-7s-refresh"></i></div> -->
+				<!-- <div class=" btn-header" ui-sref="blog" ><md-tooltip md-direction="bottom"> Tout les articles</md-tooltip><i class="pe-7s-albums"></i></div>
+				<div class=" btn-header" ui-sref="blog.add()" ><md-tooltip md-direction="bottom"> Ajouter un article</md-tooltip><i class="pe-7s-plus"></i></div>
+				<div class=" btn-header" ui-sref="blog.edit({id: lastArticle.id})" ><md-tooltip md-direction="bottom"> Modifier cet article</md-tooltip><i class="pe-7s-right-arrow"></i></div> -->
+		</header>
+ 
+		<div class="widget__content filled">
+			<div id="noDataElment" ng-show="0==1">
+				<span>Aucune donnée</span>
+
+			</div>
+			<div class="RESIZEHEIGHT">
+
+				<div class="flexboxgraph">
+						
+					<div class="graphique">
+						
+						<div class="chargement chargementGraph graphAnali" ng-if="loadingGraph"> <i class="fa fa-user sorter fa-spinner fa-spin"></i></div>
+		                <canvas ng-if="!loadingGraph" id="anatitycs" chart-options="myoptions"  chart-legend="false" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-colours="colors"></canvas>
+					</div>
+	              	<div class="allBtnAnalytics">
+
+	              		<div class="panel panel-default panel-autosize gasessions"  ng-click="changeColors('#568203','Sessions','ga:sessions');">
+	              					
+	                                <div class="panel-heading ">
+	                                	<md-tooltip md-direction="top" md-delay="500"> Il s'agit du nombre total de sessions sur la période. Une session est la période pendant laquelle un utilisateur est actif sur votre site Web.</md-tooltip>
+	                                    <label class="text-center">Sessions</label>
+	                                </div>
+	                                <div class="panel-body text-center" style="position:relative;">
+	                                    <span ng-if="!loadingLabels">{{count.sessions}}</span>
+	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <i class="fa fa-user sorter fa-spinner fa-spin"></i></div>
+	                                </div>
+	                                <!-- /.panel-body -->
+	                    </div>
+	                    <div class="panel panel-default panel-autosize gausers" ng-click="changeColors('#006A4E','Utilisateurs','ga:users'); ">
+
+	                                <div class="panel-heading">
+	                                	<md-tooltip md-direction="top" md-delay="500">Il s'agit du nombre d'utilisateurs ayant exécuté au moins une session sur la période sélectionnée.</md-tooltip>
+	                                    <label class="text-center">Utilisateurs</label>
+	                                </div>
+	                                <div class="panel-body text-center">
+	                                    <span ng-if="!loadingLabels">{{count.users}}</span>
+	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <i class="fa fa-user sorter fa-spinner fa-spin"></i></div>
+	                                </div>
+	                                <!-- /.panel-body -->
+	                    </div>
+	                    <div class="panel panel-default panel-autosize gapageviews" ng-click="changeColors('#318CE7','Pages Vues','ga:pageviews');"> 
+	                                <div class="panel-heading">
+	                                	<md-tooltip md-direction="top" md-delay="500">Il s'agit du nombre total de pages consultées. Les visites répétées d'un internaute sur une même page sont prises en compte.</md-tooltip>
+	                                    <label class="text-center">Pages vues</label>
+	                                </div>
+	                                <div class="panel-body text-center">
+	                                    <span ng-if="!loadingLabels">{{count.pageviews}}</span>
+	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <i class="fa fa-user sorter fa-spinner fa-spin"></i></div>
+	                                </div>
+	                                <!-- /.panel-body -->
+	                    </div>
+	                    <div class="panel panel-default panel-autosize gapageviewsPerSession" ng-click="changeColors('#2E5894','Pages/session','ga:pageviewsPerSession');">
+	                                <div class="panel-heading">
+	                                	<md-tooltip md-direction="top" md-delay="500">Il s'agit du nombre total de pages consultées. Les visites répétées d'un internaute sur une même page sont prises en compte.</md-tooltip>
+	                                    <label class="text-center" >Pages/session</label>
+	                                </div>
+	                                <div class="panel-body text-center">
+	                                    <span ng-if="!loadingLabels">{{count.pageviewsPerSession | number : 2}}</span>
+	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <i class="fa fa-user sorter fa-spinner fa-spin"></i></div>
+	                                </div>
+	                                <!-- /.panel-body -->
+	                    </div>
+	                    <div class="panel panel-default panel-autosize gabounceRate" ng-click="changeColors('#A52A2A','Taux rebond','ga:bounceRate');">
+	                                <div class="panel-heading">
+	                                	<md-tooltip md-direction="top" md-delay="500">Le taux de rebond correspond au pourcentage de visites d'une seule page.</md-tooltip>
+	                                    <label class="text-center">Taux rebond</label>
+	                                </div>
+	                                <div class="panel-body text-center">
+	                                    <span ng-if="!loadingLabels">{{count.bounceRate | number : 2}} %</span>
+	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <i class="fa fa-user sorter fa-spinner fa-spin"></i></div>
+	                                </div>
+	                                <!-- /.panel-body -->
+	                    </div>
+	                    <div class="panel panel-default panel-autosize gapercentNewSessions" ng-click="changeColors('#004225','% nouvelles sessions','ga:percentNewSessions');">
+	                                <div class="panel-heading">
+	                                    <md-tooltip md-direction="top" md-delay="500">Il s'agit d'une estimation du pourcentage des premières visites.</md-tooltip>
+	                                    <label class="text-center">% nouvelles sessions</label>
+
+	                                </div>
+	                                <div class="panel-body text-center">
+	                                    <span ng-if="!loadingLabels">{{count.percentNewSessions | number : 2}} %</span>
+	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <i class="fa fa-user sorter fa-spinner fa-spin"></i></div>
+	                                </div>
+	                                <!-- /.panel-body -->
+	                    </div>
+	                    <div class="panel panel-default panel-autosize gaavgSessionDuration" ng-click="changeColors('#A1CAF1','Durée moyenne d\'une session','ga:avgSessionDuration');">
+	                                <div class="panel-heading">
+	                                	<md-tooltip md-direction="top" md-delay="500">Il s'agit de la durée moyenne d'une session.</md-tooltip>
+	                                    <label class="text-center">Durée moyenne </label>
+	                                </div>
+	                                <div class="panel-body text-center">
+	                                    <span ng-if="!loadingLabels">{{count.avgSessionDuration | duration}}</span>
+	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <i class="fa fa-user sorter fa-spinner fa-spin"></i></div>
+	                                    
+	                                </div>
+	                                <!-- /.panel-body -->
+	                    </div>
+					</div>
+              	</div>
+			<!-- <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick"></canvas>  -->
+			</div>
+			<!-- <canvas id="doughnut" class="chart chart-doughnut"chart-data="data" chart-labels="labels"></canvas> -->
+		</div>
+	</article>
+</div>

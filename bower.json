@@ -43,13 +43,16 @@
     "genie": "~0.4.0",
     "ux-genie": "~0.3.3",
     "angular-gridster": "~0.13.10",
-    "angular-sanitize": "~1.5.7"
+    "angular-sanitize": "~1.5.7",
+    "angular-chart.js": "~0.10.2",
+    "Chart.js": "~2.1.6"
   },
   "resolutions": {
     "font-awesome": "4.5.0",
     "angular": "1.5.7",
     "angular-animate": "~1.5.5",
-    "moment": ">=2.8.0 <2.11.0"
+    "moment": ">=2.8.0 <2.11.0",
+    "Chart.js": "~1.1.1"
   },
   "devDependencies": {
     "angular-ui-tinymce": "~0.0.15"

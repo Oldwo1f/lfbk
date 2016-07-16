@@ -27,7 +27,7 @@ var cssFilesToInject = [
   'bower_components/jqcloud2/dist/jqcloud.min.css',
   'bower_components/angular-trustpass/dist/tr-trustpass.min.css',
   'bower_components/angular-notification-icons/dist/angular-notification-icons.min.css',
-
+  'bower_components/angular-chart.js/dist/angular-chart.min.css',
   // 'bower_components/angular-material/angular-material.css',
 
   'styles/backoffice/**/*.css',
@@ -82,6 +82,8 @@ var jsFilesToInject = [
   'bower_components/angular-nicescroll/angular-nicescroll.js',
   'bower_components/genie/dist/genie.min.js',
   'bower_components/ux-genie/uxGenie.min.js',
+  'bower_components/Chart.js/Chart.js',
+  'bower_components/angular-chart.js/dist/angular-chart.min.js',
   // 'bower_components/angularjs-color-picker/dist/angularjs-color-picker.min.js',
 
   // 'bower_components/textAngular/dist/textAngular-rangy.min.js',

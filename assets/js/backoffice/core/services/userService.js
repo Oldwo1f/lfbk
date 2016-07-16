@@ -187,6 +187,25 @@ angular.module('core')
         })
         return deferred.promise;      
     }
+    service.saveDash=function(id, values){
+
+        console.log('updateValue Service');
+        // console.log(id);
+        // console.log(values);
+        var deferred = $q.defer();
+        $sailsSocket.post('/api/user/'+id+'/saveDash',values).success(function (data,status) {
+            console.log('SUCCESS');
+            // console.log(data);
+            deferred.resolve(data);
+        }).error(function (data,status) {
+            // if(status == '401')
+            //     $state.go('login')
+            console.log('serviceErr');
+            console.log(data);
+            deferred.reject(data);
+        })
+        return deferred.promise;      
+    }
     service.remove=function(id){
 
         console.log('remove Service');

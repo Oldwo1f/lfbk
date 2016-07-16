@@ -354,7 +354,34 @@ module.exports = {
 		}, function (error, response) {
             return res.send(response);
 		});
+	},
+	saveDash:function(req,res,next){
 
+		console.log('SAVE DASH');
+		// console.log(req.body);
+		var item ={};
+		if(req.body.dashboard)
+			item.dashboard = req.body.dashboard
+		if(req.body.dashboardmd)
+			item.dashboardmd = req.body.dashboardmd
+		if(req.body.dashboardsm)
+			item.dashboardsm = req.body.dashboardsm
+		if(req.body.theme)
+			item.theme = req.body.theme
+		// console.log('-----------------------------------------------------------------------------------------');
+		// console.log(item);
+		User.update(req.params.id,req.body).then(function(data){
+			// console.log('5-----------------------------------------------------------------------------------------5');
+			// console.log(data);
+			res.send(data)
+
+		}).catch(function(err){
+
+			console.log(err);
+			res.status('500').send(err)
+			
+		})
+		
 
 
 	},

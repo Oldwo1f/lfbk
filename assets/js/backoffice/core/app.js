@@ -31,7 +31,7 @@ var listWidgetDirectivesApp = function listWidgetDirectivesApp() {
 
 
 
-angular.module('core', ['angular-notification-icons','angular-nicescroll','uxGenie','ngLetterAvatar','sails.io','color.picker','satellizer','infinite-scroll','ui.sortable','ngTagsInput','ngFileUpload','ngMaterial','ui.router','gridster','ngSanitize','ngAnimate','ui.tinymce','angularMoment','ui.bootstrap.datetimepicker','angularSpinner','momi-social','momi-user','momi-blog','momi-categories','momi-login','momi-projects'])
+angular.module('core', ['angular-notification-icons','chart.js','angular-nicescroll','uxGenie','ngLetterAvatar','sails.io','color.picker','satellizer','infinite-scroll','ui.sortable','ngTagsInput','ngFileUpload','ngMaterial','ui.router','gridster','ngSanitize','ngAnimate','ui.tinymce','angularMoment','ui.bootstrap.datetimepicker','angularSpinner','momi-social','momi-user','momi-blog','momi-categories','momi-login','momi-projects'])
 .config(function($stateProvider, $urlRouterProvider){
 
     $stateProvider
