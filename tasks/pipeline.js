@@ -84,6 +84,7 @@ var jsFilesToInject = [
   'bower_components/ux-genie/uxGenie.min.js',
   'bower_components/Chart.js/Chart.js',
   'bower_components/angular-chart.js/dist/angular-chart.min.js',
+  'bower_components/angular-elastic/elastic.js',
   // 'bower_components/angularjs-color-picker/dist/angularjs-color-picker.min.js',
 
   // 'bower_components/textAngular/dist/textAngular-rangy.min.js',

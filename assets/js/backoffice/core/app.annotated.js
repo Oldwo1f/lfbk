@@ -31,7 +31,7 @@ var listWidgetDirectivesApp = function listWidgetDirectivesApp() {
 
 
 
-angular.module('core', ['angular-notification-icons','chart.js','angular-nicescroll','uxGenie','ngLetterAvatar','sails.io','color.picker','satellizer','infinite-scroll','ui.sortable','ngTagsInput','ngFileUpload','ngMaterial','ui.router','gridster','ngSanitize','ngAnimate','ui.tinymce','angularMoment','ui.bootstrap.datetimepicker','angularSpinner','momi-social','momi-user','momi-blog','momi-categories','momi-login','momi-projects'])
+angular.module('core', ['angular-notification-icons','chart.js','angular-nicescroll','uxGenie','ngLetterAvatar','sails.io','color.picker','satellizer','infinite-scroll','ui.sortable','ngTagsInput','ngFileUpload','ngMaterial','ui.router','gridster','ngSanitize','ngAnimate','ui.tinymce','angularMoment','ui.bootstrap.datetimepicker','angularSpinner','momi-social','momi-user','momi-blog','momi-categories','momi-login','momi-params','momi-projects'])
 .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider){
 
     $stateProvider
@@ -93,13 +93,21 @@ angular.module('core', ['angular-notification-icons','chart.js','angular-nicescr
 
 
 }]);
-angular.module('core').controller('appController',["$scope", "$rootScope", "$auth", "$state", "$sailsSocket", "userService", function ($scope,$rootScope,$auth,$state, $sailsSocket, userService){
+angular.module('core').controller('appController',["$scope", "$rootScope", "$auth", "$state", "$sailsSocket", "paramsService", "userService", function ($scope,$rootScope,$auth,$state, $sailsSocket,paramsService, userService){
 
     // $scope.currentTheme = 'bg1';
     $scope.$on('changeTheme',function(e,theme){
             console.log('THTHTHHTHTHTHTTHTHTHH');
             console.log(theme);
             $scope.currentTheme = theme;
+    })
+    paramsService.getLangs().then(function(data) {
+        console.log(data);
+        $scope.defaultLanguage=[]
+        $scope.languages = data.locales;
+        $scope.defaultLanguage.push(data.defaults)
+        console.log($scope.languages);
+        console.log($scope.defaultLanguage);
     })
   if($auth.getToken()){
     $sailsSocket.defaults.headers.common.Authorization = 'Bearer '+ $auth.getToken();
@@ -118,6 +126,7 @@ angular.module('core').controller('appController',["$scope", "$rootScope", "$aut
             //     e.preventDefault();
             //     $state.go('/')
             // }
+            $(window).resize()
 
             if ($auth.isAuthenticated() && toState.name == 'logout') {
                 
@@ -126,7 +135,26 @@ angular.module('core').controller('appController',["$scope", "$rootScope", "$aut
             if (!$auth.isAuthenticated() && toState.name != 'login'  && toState.name != 'firstconnexion') {
                 e.preventDefault();
                 $state.go('login');
+                
             }
+
+   });
+   $rootScope.$on('$stateChangeSuccess',function (e,toState,toParams,fromState,fromParams){
+            // // if (toState.name == 'login' && $auth.isAuthenticated()){
+            // //     // requiredLogin = false;
+            // //     e.preventDefault();
+            // //     $state.go('/')
+            // // }
+
+            // if ($auth.isAuthenticated() && toState.name == 'logout') {
+                
+            // }
+            // else
+            // if (!$auth.isAuthenticated() && toState.name != 'login'  && toState.name != 'firstconnexion') {
+            //     e.preventDefault();
+            //     $state.go('login');
+
+            // }
 
    });
    // $(window).resize(function() {

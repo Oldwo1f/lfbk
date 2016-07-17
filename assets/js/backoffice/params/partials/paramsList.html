@@ -1,0 +1,167 @@
+<div class="my-container administration">
+
+
+	<article class="widget">
+		<header class="pageHeader">
+
+			<a  class="rightBtn" ng-click="returnDashboardState()">
+				<span ><i class="fa fa-dashboard"></i></span>
+			</a>
+			<a  class="rightBtn" ng-click="returnPreviousState()">
+				<span  ><i class="fa fa-long-arrow-left"></i></span>
+			</a>
+			<div class="pageTitle">
+				<i class="pe-7f-edit"></i><h3>Paramètres d'administrations</h3>
+			</div>
+			<!-- <div class="searchBar">
+				<input class="" type="text" ng-blur="searchArticle()" ng-keypress="blurOnEnter($event)" ng-model="searchSlug" placeholder="Recherche dans les articles">
+				<span class="iconsearch"><i class="fa fa-search"></i></span>
+			</div>
+			<a class="leftBtn" ui-sref="categories">
+				<span  ><i class="pe-7s-way"></i></span>
+			</a>
+			<a class="leftBtn" ui-sref="blog.add">
+				<span  ><i class="pe-7s-plus"></i></span>
+			</a> -->
+		</header>
+		
+		<div class="widget__content ">
+					
+			    <div class="panel panel-default">
+			        <div class="panel-heading">
+			            <i class="fa fa-upload fa-fw"></i> Mise a jour
+			            
+			        </div>
+			        <!-- /.panel-heading -->
+			        <div class="panel-body">
+			            <div class="row">
+			                <div  style="padding-left:15px;margin-bottom: 7px;">
+			                    <label>Version du site</label>: <span >{{myversion.version}}</span>
+			                    
+			                </div>
+			                <div style="padding-left:15px;padding-right:15px">
+			                    <small>Aucune mise à jour disponible</small>
+			                </div>
+			                
+			            </div>
+			        </div>
+			    </div>
+			    <div class="panel panel-default">
+			        <div class="panel-heading">
+			            <i class="fa fa-refresh fa-fw"></i> Redémarrer
+			            
+			        </div>
+			        <!-- /.panel-heading -->
+			        <div class="panel-body">
+			        	
+			        	<a class="btn btn-primary btn-xs" ng-click="restartSite()" target="_BLANK">Redémarrer le site</a>
+			            <!-- <div class="row">
+			                <div  style="padding-left:15px;margin-bottom: 7px;">
+			                    <label>Version du site</label>: <span >{{myversion.version}}</span>
+			                    
+			                </div>
+			                <div style="padding-left:15px;padding-right:15px">
+			                    <small>Aucune mise à jour disponible</small>
+			                </div>
+			                
+			            </div> -->
+			        </div>
+			    </div>
+			    
+			    <div class="panel panel-default">
+			        <div class="panel-heading">
+			            <i class="fa fa-cubes fa-fw"></i> Espace de stockage
+			            
+			        </div>
+			        <!-- /.panel-heading -->
+			        <div class="panel-body stockage">
+			            <div class="row">
+			                <div class="pull-left" style="padding-left:15px">
+			                    <ul>
+			                        <li><label tooltip-placement="right" tooltip="Contactez l'agence pour auguementer le quota">Quota</label>: <span >{{sizequota | bytes}}</span></li>
+			                        <li><label>Total</label>: <span >{{(imageSize+fileSize) | bytes}}</span></li>
+			                        <li><label>Images</label>: <span >{{imageSize | bytes}}</span></li>
+			                        <li><label>Documents</label>: <span >{{fileSize | bytes}}</span></li>
+			                        <li><label>Espace libre</label>: <span class="label" ng-class="{'label-success':depassement<0,'label-danger':depassement>0}">{{freespace| bytes}}</span></li>
+			                        <li ng-if="depassement > 0"><small>Quota dépasser de {{ depassement | bytes}}. Contacter l'agence pour auguementer le quota.</small></li>
+			                        
+
+			                        
+			                    </ul>
+			                </div>
+			               
+			                <div class="pull-right">
+			                    <canvas id="doughnutstockage" class="chart chart-doughnut" chart-options="options2" height="125px" chart-colours='colors' chart-data="data2"
+			                            chart-labels="labels2" chart-legend="true"></canvas> 
+			                </div>
+			                <div class="btnleftbottom" style="padding-left:15px">
+			                    <a class="btn btn-primary btn-xs" href="/backupFiles" target="_BLANK">Faire une sauvegarde</a>
+			                </div>
+			            </div>
+			            <!-- /.row -->
+			        </div>
+			        <!-- /.panel-body -->
+			    </div>
+			    <!-- /.panel -->
+			    
+			    <div class="panel panel-default bdd">
+			        <div class="panel-heading">
+			            <i class="fa fa-database fa-fw"></i> Base de données
+			            
+			        </div>
+			        <div class="panel-body">
+			            <div class="row">
+			                <div  style="padding-left:15px;padding-right:15px">
+			                    <ul>
+			                        <li><label>Poid de la base</label>: <span >{{(dbstats.dataSize) | bytes}}</span></li>
+			                        <li><label >Collections</label>: <span >{{dbstats.collections}}</span></li>
+			                        <li><label >Enregistrements</label>: <span >{{dbstats.objects}}</span></li>
+			                        <li><label >Indexes</label>: <span >{{dbstats.indexes}}</span></li>
+			                        
+
+			                        
+			                    </ul>
+			                </div>
+			               
+			                <div style="padding-left:15px;">
+			                    <a class="btn btn-primary btn-xs" href="/backupDb" target="_BLANK">Faire une sauvegarde</a>
+			                </div><!-- 
+			                <div  style="padding-left:15px">
+			                    <a class="btn btn-primary btn-xs" href="/backupFiles" target="_BLANK">Importer une sauvegarde</a>
+			                </div> -->
+			            </div>
+			        </div>
+			    </div>
+			    <div class="panel panel-default bdd">
+			        <div class="panel-heading">
+			            <i class="fa fa-globe fa-fw"></i> Traductions
+			            
+			        </div>
+			        <div class="panel-body">
+			            <div class="row">
+			               <!--  <div  style="padding-left:15px;padding-right:15px">
+			                    <ul>
+			                        <li><label>Poid de la base</label>: <span >{{(dbstats.dataSize) | bytes}}</span></li>
+			                        <li><label >Collections</label>: <span >{{dbstats.collections}}</span></li>
+			                        <li><label >Enregistrements</label>: <span >{{dbstats.objects}}</span></li>
+			                        <li><label >Indexes</label>: <span >{{dbstats.indexes}}</span></li>
+			                        
+
+			                        
+			                    </ul>
+			                </div> -->
+			               
+			                <div style="padding-left:15px;padding-right:15px">
+			                    <a class="btn btn-primary btn-xs" ui-sref="params.traductions({lang:'fr'})">Gérer les traductions</a>
+			                </div><!-- 
+			                <div  style="padding-left:15px">
+			                    <a class="btn btn-primary btn-xs" href="/backupFiles" target="_BLANK">Importer une sauvegarde</a>
+			                </div> -->
+			            </div>
+			        </div>
+			    </div>
+			
+		</div> <!-- /widget__content -->
+
+	</article>
+</div>

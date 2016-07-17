@@ -24,21 +24,32 @@
 				</div>
 				
 				<div class="titleDropdown">
-					<div class="dropdown">
+					<!-- <div class="dropdown">
 					  <button class="btn btn-block blue dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false">
 					    Période
 					    <span class="caret">
 					    	<i class="pe-7g-arrow2-down"></i>
 					    </span>
-					  </button>
+					  </button> -->
+					  <select prevent-submit-enter class="btn btn-block blue form-control" ng-change="choosePeriod()" ng-model="period">
+					  	<option value="week">Cette semaine</option>
+					  	<option value="lastweek">La semaine dernière</option>
+					  	<option value="month">Ce moi</option>
+					  	<option value="lastmonth">La moi dernier</option>
+					  	<option value="year">Cette année</option>
+
+					  </select>
+
+<!-- 
+
 					  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
 					    <li role="presentation"><a  ng-click="choosePeriod('week');" >Cette semaine</a></li>
 					    <li role="presentation"><a  ng-click="choosePeriod('lastweek');" >La semaine dernière</a></li>
 					    <li role="presentation"><a  ng-click="choosePeriod('month');">Ce moi</a></li>
                         <li role="presentation"><a  ng-click="choosePeriod('lastmonth');" >La moi dernier</a></li>
                         <li role="presentation"><a  ng-click="choosePeriod('year');">Cette année</a></li>
-					  </ul>
-					</div>
+					  </ul> -->
+					<!-- </div> -->
                    
                 </div>
 				<!-- <div class="switcherConfigMode keepThisEvent btn-header" ng-click="toogleEditMode()">
@@ -63,7 +74,7 @@
 						
 					<div class="graphique">
 						
-						<div class="chargement chargementGraph graphAnali" ng-if="loadingGraph"> <i class="fa fa-user sorter fa-spinner fa-spin"></i></div>
+						<div class="chargement chargementGraph graphAnali" ng-if="loadingGraph"><div class="loader  loader-violet loader-delayed loader-large"></div></div>
 		                <canvas ng-if="!loadingGraph" id="anatitycs" chart-options="myoptions"  chart-legend="false" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-colours="colors"></canvas>
 					</div>
 	              	<div class="allBtnAnalytics">
@@ -76,7 +87,7 @@
 	                                </div>
 	                                <div class="panel-body text-center" style="position:relative;">
 	                                    <span ng-if="!loadingLabels">{{count.sessions}}</span>
-	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <i class="fa fa-user sorter fa-spinner fa-spin"></i></div>
+	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <div class="loader  loader-violet loader-small"></div></div>
 	                                </div>
 	                                <!-- /.panel-body -->
 	                    </div>
@@ -88,7 +99,7 @@
 	                                </div>
 	                                <div class="panel-body text-center">
 	                                    <span ng-if="!loadingLabels">{{count.users}}</span>
-	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <i class="fa fa-user sorter fa-spinner fa-spin"></i></div>
+	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <div class="loader  loader-violet loader-small"></div></div>
 	                                </div>
 	                                <!-- /.panel-body -->
 	                    </div>
@@ -99,7 +110,7 @@
 	                                </div>
 	                                <div class="panel-body text-center">
 	                                    <span ng-if="!loadingLabels">{{count.pageviews}}</span>
-	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <i class="fa fa-user sorter fa-spinner fa-spin"></i></div>
+	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <div class="loader  loader-violet loader-small"></div></div>
 	                                </div>
 	                                <!-- /.panel-body -->
 	                    </div>
@@ -110,7 +121,7 @@
 	                                </div>
 	                                <div class="panel-body text-center">
 	                                    <span ng-if="!loadingLabels">{{count.pageviewsPerSession | number : 2}}</span>
-	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <i class="fa fa-user sorter fa-spinner fa-spin"></i></div>
+	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <div class="loader  loader-violet loader-small"></div></div>
 	                                </div>
 	                                <!-- /.panel-body -->
 	                    </div>
@@ -121,7 +132,7 @@
 	                                </div>
 	                                <div class="panel-body text-center">
 	                                    <span ng-if="!loadingLabels">{{count.bounceRate | number : 2}} %</span>
-	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <i class="fa fa-user sorter fa-spinner fa-spin"></i></div>
+	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <div class="loader  loader-violet loader-small"></div></div>
 	                                </div>
 	                                <!-- /.panel-body -->
 	                    </div>
@@ -133,7 +144,7 @@
 	                                </div>
 	                                <div class="panel-body text-center">
 	                                    <span ng-if="!loadingLabels">{{count.percentNewSessions | number : 2}} %</span>
-	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <i class="fa fa-user sorter fa-spinner fa-spin"></i></div>
+	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <div class="loader  loader-violet loader-small"></div></div>
 	                                </div>
 	                                <!-- /.panel-body -->
 	                    </div>
@@ -144,7 +155,7 @@
 	                                </div>
 	                                <div class="panel-body text-center">
 	                                    <span ng-if="!loadingLabels">{{count.avgSessionDuration | duration}}</span>
-	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <i class="fa fa-user sorter fa-spinner fa-spin"></i></div>
+	                                    <div class="chargement chargementLabel" ng-if="loadingLabels"> <div class="loader  loader-violet loader-small"></div></div>
 	                                    
 	                                </div>
 	                                <!-- /.panel-body -->

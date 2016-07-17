@@ -4737,3 +4737,17 @@ a:focus, a:hover{text-decoration: none;}
 .lamp-wish.focused{background:rgba(255,255,255,0.5);color:black;}
 .lamp-wishes-container{max-height:310px; background:rgba(0,0,0,0.5);overflow-y:auto;}
 .wish-i-icon{width: 30px;margin-left: 20px;margin-right: 20px;}
+
+/*.administration .widget__content{display:flex;background:transparent;}*/
+.administration .panel {border: none;background: none;border-radius: 0px; margin:10px; height: auto; float:left;display:inline-block;}
+.administration .panel-body {position: relative;background: rgba(0,0,0,0.25);    margin-top: 1px;}
+.administration .panel-heading {background: rgba(0,0,0,0.35);border-color: rgba(0,0,0,0); color:white;border-radius: 0px}
+.administration .chart-container {height:154px !important;}
+.administration .btnleftbottom {position: absolute;left: 0px;bottom: 15px;}
+.administration .stockage li {margin-bottom: 7px;}
+.administration .bdd li {margin-bottom: 10px;}
+.administration .bdd li:last-child {margin-bottom: 20px;}
+.traductions input.form-control {cursor: text;background:rgba(0,0,0,0.25);color:white; border:none;border-radius: 0;box-shadow:none;}
+.traductions textarea {background:rgba(0,0,0,0.25);color:white; border:none;border-radius: 0;resize: none;}
+.traductions .tradList li {margin-bottom: 5px;}
+.traductions .tradList .flech{color:rgba(0,0,0,0.25);position:absolute;top:5px;right:-5px;}

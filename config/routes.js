@@ -83,7 +83,19 @@ module.exports.routes = {
   'GET /getNotifications/:page':'adminController.getNotifications',
   'GET /getSocials':'adminController.getSocials',
 
- 
+  //Params 
+  'GET /getTraductions/:lang':'ParamsController.getTraductions',
+  'PUT /saveTraduction/:lang':'ParamsController.saveTraduction',
+  'GET /getUploadsSize':'ParamsController.getUploadsSize',
+  'GET /backupFiles':'ParamsController.backupFiles',
+  'GET /backupDb':'ParamsController.backupDb',
+  'GET /restoreDb':'ParamsController.restoreDb',
+  'GET /gitCheckout':'ParamsController.gitCheckout',
+  'GET /getVersion':'ParamsController.getVersion',
+  'GET /getDbStats':'ParamsController.getDbStats',
+  'GET /getLangs':'ParamsController.getLangs',
+  'GET /getConfig':'ParamsController.getConfig',
+  'GET /restartSite':'ParamsController.restartSite',
 
   // 'POST /article/:id/tags/:pk':'ArticleController.addTag',
   // 'POST /article/:id/tags':'ArticleController.addTag',

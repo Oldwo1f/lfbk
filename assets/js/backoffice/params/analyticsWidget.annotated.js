@@ -122,13 +122,13 @@ angular.module('core')
             $scope.analytics=true;
             $scope.loadingLabels=true;
 
-            $scope.choosePeriod=function (period) {
-        console.log('CHOOSEPERIOD');
-        $scope.period = period;
-        console.log('period',$scope.period); 
-        $scope.loadGraph()
+            $scope.choosePeriod=function () {
+                console.log('CHOOSEPERIOD');
+                // $scope.period = period;
+                console.log('period',$scope.period); 
+                $scope.loadGraph()
 
-    }
+            }
 
     $scope.changeColors=function (color,serie, metrics) {
 
