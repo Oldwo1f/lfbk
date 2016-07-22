@@ -17,44 +17,79 @@ module.exports = {
   		size:{type:'int'},
   		type:{type:'string'},
         selfUpdate:function(options,cb,res){
-        console.log('SELF UPDATE');
-        console.log(options);
+            console.log('SELF UPDATE ! ! ! ! ! ! !');
+            console.log(options);
 
-        if(options.parentType == 'article')
-        {
-            if(options.verb == 'add'){
-            		console.log('DOC ADD');
-            		console.log(this.id);
-               Document.findOne(this.id).then(function(data){
-               	console.log(data);
-                    // data.nbArticles= Number(data.nbArticles)+1;
-                    // data.total= Number(data.total)+1;
-                    // console.log(data);
-                    // return Tag.update(data.id ,
-                    // {
-                    //     // nbArticles : data.nbArticles,
-                    //     total : data.total
-                    // }).then(function(result){
-                    //     console.log(result[0]);
-                        cb(null,data);
-                        
-                    // })
-                   
-                }).catch(function (err) {
-                    cb(err,null);
-                });
-            }
-  
-            if(options.verb == 'remove'){
-            	console.log('DOC REMOVE');
-              	Document.destroy(this.id).then(function(data){
+            if(options.parentType == 'article')
+            {
+                if(options.verb == 'add'){
+                    console.log('DOC ADD');
+                    console.log(this.id);
+                   Document.findOne(this.id).then(function(data){
+                    console.log(data);
+                        // data.nbArticles= Number(data.nbArticles)+1;
+                        // data.total= Number(data.total)+1;
+                        // console.log(data);
+                        // return Tag.update(data.id ,
+                        // {
+                        //     // nbArticles : data.nbArticles,
+                        //     total : data.total
+                        // }).then(function(result){
+                        //     console.log(result[0]);
                             cb(null,data);
-                	
-                }).catch(function (err) {
-                    cb(err,null);
-                });
+                            
+                        // })
+                       
+                    }).catch(function (err) {
+                        cb(err,null);
+                    });
+                }
+      
+                if(options.verb == 'remove'){
+                  console.log('DOC REMOVE');
+                    Document.destroy(this.id).then(function(data){
+                                cb(null,data);
+                      
+                    }).catch(function (err) {
+                        cb(err,null);
+                    });
+                }
             }
-        }
+            if(options.parentType == 'slide')
+            {
+                if(options.verb == 'add'){
+                		console.log('DOC ADD');
+                		console.log(this.id);
+                   Document.findOne(this.id).then(function(data){
+                   	console.log(data);
+                        // data.nbArticles= Number(data.nbArticles)+1;
+                        // data.total= Number(data.total)+1;
+                        // console.log(data);
+                        // return Tag.update(data.id ,
+                        // {
+                        //     // nbArticles : data.nbArticles,
+                        //     total : data.total
+                        // }).then(function(result){
+                        //     console.log(result[0]);
+                            cb(null,data);
+                            
+                        // })
+                       
+                    }).catch(function (err) {
+                        cb(err,null);
+                    });
+                }
+      
+                if(options.verb == 'remove'){
+                	console.log('DOC REMOVE');
+                  	Document.destroy(this.id).then(function(data){
+                                cb(null,data);
+                    	
+                    }).catch(function (err) {
+                        cb(err,null);
+                    });
+                }
+            }
       }
 	},
     afterCreate: function (value, callback){

@@ -1,0 +1,162 @@
+<md-dialog  class="userAddContainer editSLIDE"  ng-cloak>
+  <form>
+    <!-- <md-toolbar>
+      <div class="md-toolbar-tools">
+      	<div>Ajouter une gallerie</div>
+		<div ngf-drop="addImgCrop($files)" ngf-pattern="'image/*'"ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" ngf-drag-over-class="'dragover'" ng-model="file" class="drop-zone" >Déposer une image ici</div>
+        <div class="button btnADDIMG" ngf-select="addImgCrop($files)" ng-model="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"> <i class="pe-7s-plus"></i></div>
+      </div>
+    </md-toolbar> -->
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+		<div ngf-drop="addImgCrop($files)" ngf-pattern="'image/*'"ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" ngf-drag-over-class="'dragover'" ng-model="file" class="drop-zone" >Déposer une image ici</div>
+        <div class="button btnADDIMG" ngf-select="addImgCrop($files)" ng-model="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"> <i class="pe-7s-plus"></i></div>
+      </div>
+    </md-toolbar>
+    <md-dialog-content >
+				
+			<article class="widget widget__form">
+			<div class="form_col">
+				<div class="imgrelativecontainer addImages">
+				
+					<div image-crop 
+				    		aspect-ratio="imgcrop.aspectRatio" 
+				    		img-src="imgcrop.imgSrc" 
+				    		img-load="'imgLoader.gif'" 
+				    		display-height="imgcrop.displayHeight"
+				    		display-width = "imgcrop.displayWidth"
+				    		scaled-height="imgcrop.scaledHeight" 
+				    		scaled-width="imgcrop.scaledWidth" 
+				    		scaled-top="imgcrop.scaledTop" 
+				    		scaled-left="imgcrop.scaledLeft" 
+				    		container-width="imgcrop.containerWidth" 
+				    		container-height="imgcrop.containerHeight" 
+				    		style=" width: 100%; position:relative;" class="imageCropper" ng-class="{imageCropperH0: !imgcrop.imgSrc}">
+						</div>
+					<button ng-if="imgcrop.imgSrc" class="btn red pull-left" ng-click="removeImgCrop()">Annuler</button>
+					<button ng-if="imgcrop.scaledWidth && !imgcrop.imgEditId" class="btn blue pull-left" ng-click="uploadImage()">Ajouter cette image</button>
+					<button ng-if="imgcrop.scaledWidth && imgcrop.imgEditId" class="btn blue pull-left" ng-click="resizeOnly()">Redimentionner l'image</button>
+					<!-- <div class="landscapeportrait"  ng-if="imgcrop.scaledWidth"> -->
+						<!-- <button class="btn blue" ng-click="changeOrientation()"><i class="fa fa-exchange"></i></button> -->
+					<!-- </div> -->
+					<p class="messageImage pull-left"  ng-if="imgcrop.imgSrc && !imgcrop.scaledWidth"><span>Vous devez redimentionner votre image avant de l'envoyer ver le server. <br> Faite un rectangle dessu le plus grand possible.</span></p>
+				</div>
+				<div ng-if="formData.images.length" class="imageList" ui-sortable="sortOption" ng-model="formData.images">
+					<figure class="pull-left post__img" ng-repeat="img in formData.images">
+						<img class="media-object" ng-src="image/resized/{{img.filename}}" alt="new">
+						<div class="btnreresize" ng-click="resizeagain(img)"><i class="fa fa-crop"></i></div>
+						<removeremove class="removeremove" action="removeImg" itemid="img.id"></removeremove>
+					</figure>
+					
+					<!-- ng-if  number of image > 4 -->
+					<div class="completor"></div>
+				</div>
+			<div class="clearfix"></div>
+				<label for="input-3" class="stacked-label"><i class="pe-7s-flag"></i></label>
+				<input type="text" ng-blur="saveSlide('title')" name="title"  class="stacked-input"  ng-model="formData.title" id="input-3" placeholder="Titre du slide">
+				<label for="input-3" class="stacked-label"><i class="pe-7s-link"></i></label>
+				<input type="text" ng-blur="saveSlide('link1')" name="link1"  class="stacked-input"  ng-model="formData.link1" id="input-3" placeholder="Lien principal">
+
+				<label for="input-3" class="stacked-label"><i class="pe-7s-box2"></i></label>
+				<input type="text" ng-blur="saveSlide('btn')" name="btn"  class="stacked-input"  ng-model="formData.btn" id="input-3" placeholder="Texte du bouton">
+				<label for="input-3" class="stacked-label"><i class="pe-7s-link"></i></label>
+				<input type="text" ng-blur="saveSlide('link2')" name="link2"  class="stacked-input"  ng-model="formData.link2" id="input-3" placeholder="Lien du bouton">
+				<label for="input-4" class="stacked-label margedubas"><i class="pe-7s-note"></i></label>
+				<textarea  class="tinymcetextarea margedubas" ng-model="formData.content" msd-elastic  ng-model="tinymceModel" ng-blur="saveSlide('content')" placeholder="Contenu texte"></textarea>
+				<!-- <md-slider-container> -->
+				<div class="form_title formTitleSpecial">
+					<div ngf-drop="uploadDocument($files)"  ngf-max-size="20MB"  ngf-drag-over-class="'dragover'" ng-model="document" class="drop-zone" >Déposer un document ici</div>
+					<div class="button btnADDIMG" ngf-select="uploadDocument($files)" ng-model="document"  ngf-max-size="700MB"> <i class="pe-7s-plus"></i></div>
+				</div>
+
+			
+			<div class="clearfix"></div>
+			<!-- <div class="smallSeparator"></div> -->
+
+			<div ng-repeat="uploadingDoc in uploadsDocument" class="uploadingDoc" ng-if="uploadingDoc.status == 'progress'">
+				<span>{{uploadingDoc.file.name}}</span>
+				<span>{{uploadingDoc.text}}</span>
+				<md-progress-linear md-mode="determinate" value="{{uploadingDoc.progressPercentage}}"></md-progress-linear>
+					
+			</div>
+
+			<div class="smallSeparator"></div>
+			<!-- ui-sortable ng-model="formData.documents" -->
+			<div  class="documentList" ng-class="{'nodocument': !formData.documents.length}">
+				<div class="document" ng-repeat="doc in formData.documents">
+					<span ng-if="doc.type | regex:'image':false" >
+						<i class="fa fa-file-image-o"></i>
+						<md-tooltip md-direction="top"> Image</md-tooltip>
+					</span>
+					<span ng-if="doc.type | regex:'video':false">
+						<i class="fa fa-file-video-o"></i>
+						<md-tooltip md-direction="top"> Video</md-tooltip>
+					</span>
+					<span ng-if="doc.type | regex:'pdf':false">
+						<i class="fa fa-file-pdf-o"></i>
+						<md-tooltip md-direction="top"> Pdf</md-tooltip>
+					</span>
+					<span ng-if="doc.type | regex:'zip':false">
+						<i class="fa fa-file-zip-o"></i>
+						<md-tooltip md-direction="top"> Archive zip</md-tooltip>
+					</span>
+					<span ng-if="doc.type | regex:'rar':false">
+						<i class="fa fa-file-zip-o"></i>
+						<md-tooltip md-direction="top"> Archive rar</md-tooltip>
+					</span>
+					<span ng-if="doc.type | regex:'audio':false">
+						<i class="fa fa-file-sound-o"></i>
+						<md-tooltip md-direction="top"> Fichier audio</md-tooltip>
+					</span>
+					<span ng-if="doc.type | regex:'spreadsheet':false">
+						<i class="fa fa-file-excel-o"></i>
+						<md-tooltip md-direction="top"> Feuille de calcule</md-tooltip>
+					</span>
+					<span ng-if="doc.type | regex:'text':false">
+						<i class="fa fa-file-text-o"></i>
+						<md-tooltip md-direction="top"> Document text</md-tooltip>
+					</span>
+					<span ng-if="doc.type | regex:'word':false">
+						<i class="fa fa-file-text-o"></i>
+						<md-tooltip md-direction="top"> Document word</md-tooltip>
+					</span>
+					<span ng-if="!(document.doc.type | regex:'image':false)&&
+						        !(document.doc.type | regex:'video':false) &&
+						        !(document.doc.type | regex:'pdf':false) &&
+						        !(document.doc.type | regex:'zip':false) &&
+						        !(document.doc.type | regex:'rar':false) &&
+						        !(document.doc.type | regex:'audio':false) &&
+						        !(document.doc.type | regex:'spreadsheet':false) &&
+						        !(document.doc.type | regex:'excel':false) &&
+						        !(document.doc.type | regex:'text':false) &&
+						        !(document.doc.type | regex:'word':false)">
+						<i class="fa file-text-o"></i>
+						<md-tooltip md-direction="top"> {{doc.type}}</md-tooltip>
+					</span>
+
+					<span class="documentTitle"> {{ doc.name}}</span>
+					<removeremove class="removeremove" action="removeDocument" itemid="doc.id"></removeremove>
+				</div>
+				<div class="completor"></div>
+			</div>
+			      
+			    <!-- </md-slider-container> -->
+				<!-- <label for="input-2" class="stacked-label"><i class="fa fa-arrows-h"></i></label>
+				<input type="text" name="width" required class="stacked-input"  ng-model="formData.width" id="input-2" placeholder="Largeur">	
+
+				<label for="input-1" class="stacked-label"><i class="fa fa-arrows-v"></i></label>
+				<input type="text" name="height" required class="stacked-input"  ng-model="formData.height" id="input-1" placeholder="hauteur">	 -->
+				<div class="removeremovecontainer">
+					
+					<removeremove class="removeremove" action="deleteSlide" itemid="formData.id"><button type="button" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> </button></removeremove>
+				</div>
+
+			</div>
+		</article>
+			
+    </md-dialog-content>
+    <!-- <md-dialog-actions layout="row"> -->
+      <!-- <removeremove class="removeremove ng-isolate-scope" action="removeThis" itemid="formData.id"><button type="button" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> </button></removeremove> -->
+    <!-- </md-dialog-actions> -->
+  </form>
+</md-dialog>

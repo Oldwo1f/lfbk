@@ -1,0 +1,45 @@
+<md-dialog aria-label="Editer un utilisateur" class="userAddContainer edit" ng-cloak>
+  <form name="myform">
+    
+    <md-dialog-content>
+
+    	<article class="widget widget__form">
+			<div class="form_col" style="margin-bottom: -1px;">
+
+				<div class="formGroup mb  fullwidthgroup">
+					<div class="btn-group block">
+					  <a ng-click="formData.role='admin'; update('role')" type="button" class="fakeColorGreen btn active"  ng-class="{'green':formData.role=='admin','blue':formData.role=='user','violet':formData.role=='premium'}" style="border-right:0px">Administrateur</a>
+					  <a ng-click="formData.role='user'; update('role')" type="button" class="fakeColorBlue btn active" ng-class="{'green':formData.role=='admin','blue':formData.role=='user','violet':formData.role=='premium'}" >User</a>
+					  <a ng-click="formData.role='premium'; update('role')" type="button" class="fakeColorViolet btn active" ng-class="{'green':formData.role=='admin','blue':formData.role=='user','violet':formData.role=='premium'}"  style="border-left:0px">Premium user</a>
+					</div>
+				</div>
+				<div class="smallSeparator"></div>
+				<label for="input-1" class="stacked-label"><i class="pe-7s-mail"></i></label>
+				<!-- <span class="loaderIntput" ng-show="myform.email.$pending.uniqueemail"><i class="fa fa-spinner fa-spin"></i>Vérification de disponibilité</span>
+				<span class="loaderIntput" ng-show="myform.email.$error.uniqueemail"></i>Email déjà utilisée</span> 
+				uniqueemail="formData.email"  validate-email
+				-->
+				<input type="email"  name="email" disabled class="stacked-input" ng-model="formData.email" id="input-1" placeholder="Email">	
+
+				<label for="input-2" class="stacked-label"><i class="pe-7s-user"></i></label>
+				<input type="text" name="name" required class="stacked-input"  ng-model="formData.name" id="input-2" placeholder="Nom">	
+
+				<label for="input-3" class="stacked-label"><i class="pe-7s-user"></i></label>
+				<input type="text" name="firstname" required class="stacked-input"  ng-blur="update('firstname')" ng-model="formData.firstname" id="input-3" placeholder="Prénom">
+
+				<label for="input-4" class="stacked-label margedubas"><i class="pe-7s-note"></i></label>
+				<textarea ui-tinymce="tinymceOption" msd-elastic  ng-model="formData.description"  ng-blur="update('description')" placeholder="Ma description"></textarea>
+			</div>
+		</article>	
+			
+			
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+				<!-- <button class="btn blue pull-left" ng-click="addUser()">Ajouter cet utilisateur</button> -->
+				<div class="removeremovecontainer">
+					
+					<removeremove class="removeremove" action="deleteUser" itemid="formData.id"><button type="button" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> </button></removeremove>
+				</div>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

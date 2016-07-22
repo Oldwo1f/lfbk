@@ -4,7 +4,7 @@ angular.module('core')
     'use strict';
     var thisresize = function(item){
 
-
+      console.log('THISRESIZE THISRESIZE');
         	var classToSet= 'style0' ,classFont='mediumFont';
         	var x = item.sizeX, y = item.sizeY;
 
@@ -98,10 +98,11 @@ angular.module('core')
     setTimeout(function(){
       
       $('.lastarticleWidget .RESIZEHEIGHT md-card-title-text').getNiceScroll().resize();
+      $('.card-media ').height(item.getElementSizeY()-125)
+      $('.card-media ').width(item.getElementSizeY()-125)
     },1)
     $('#noLastAticleElment').css('height' , item.getElementSizeY()-94 +'px')
-    $('.card-media ').height(item.getElementSizeY()-125)
-    $('.card-media ').width(item.getElementSizeY()-125)
+    
         	
         	item.$element.removeClass('style0 style1 style2 style3 style4 style5 style6 style7 style8 style9 style10 style11 style12 style13 style14 style15 smallFont extralargeFont mediumFont  largeFont')
         	.addClass(classToSet+ ' ' + classFont)
@@ -128,7 +129,8 @@ angular.module('core')
       link:function(scope,element,attrs){
 
 
-      		
+      		console.log('HERE LINK NEEEEEEDED');
+          console.log(scope.$parent.gridsterItem);
       	thisresize(scope.$parent.gridsterItem)
 
         articleService.fetchLast().then(function(data){

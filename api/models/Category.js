@@ -169,4 +169,20 @@ module.exports = {
                console.log(err);
         })
     },
+    beforeDestroy: function (value, callback){
+        console.log('BEFORE SLIDE DESTROY');
+        console.log(value.where.id);
+        var id = value.where.id
+        Category.findOne(id).populateAll().then(function(data){
+            console.log(data);
+            var imgsToDestroy = data.images.map(function(img) {
+                return Image.destroy(img.id);
+            });
+            return Promise.all(imgsToDestroy)
+              .then(function() {
+                        callback()
+            })
+            
+        })
+    }
 };

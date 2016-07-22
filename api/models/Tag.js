@@ -170,6 +170,7 @@ module.exports = {
     },
     afterDestroy: function (value, callback){
         console.log('after destroy TAG');
+        console.log(value);
         es.delete('tag',value[0]).then(function(){
             return callback()
         }).catch(function(err){

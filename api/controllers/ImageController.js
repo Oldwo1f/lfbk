@@ -39,7 +39,7 @@ module.exports = {
 				if(info.size > 500000){ quality = 80;}
 				if(info.size > 700000){ quality = 70;}
 				if(info.size > 1000000){ quality = 50;}
-				if(info.size > 2000000){ quality = 20;}
+				if(info.size > 2000000){ quality = 30;}
 
 
 console.log('quality =' +quality);
@@ -57,7 +57,8 @@ console.log('quality =' +quality);
 					     src:'uploads/images/resized/'+req.body.filename, dst:'uploads/images/resized2/'+req.body.filename,
 					     width:req.body.normalWidth, height:req.body.normalHeight,
 					     // cropwidth:req.body.normalWidth, cropheight:req.body.normalHeight,
-					     // x:req.body.scaledLeft, y:req.body.scaledTop, quality:quality
+					     // x:req.body.scaledLeft, y:req.body.scaledTop,
+					      quality:100
 					}).then(function(image) {
 						
 

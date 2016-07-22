@@ -89,7 +89,7 @@ module.exports = {
 			var idsCom ;
 			Article.findOne(req.params.id).populateAll().then(function(article){
 				console.log('HERE');
-				// console.log(article);
+				console.log(article);
 				// console.log(typeof(article.authors));
 				var art=_.cloneDeep(article);
 				return new Promise(function(resolve,reject){
@@ -204,7 +204,7 @@ module.exports = {
 			    		
 			    		file.filename = goodname;
 			    		// file.description = '';
-			    		file.nbDowload = Math.round(Math.random()*100)
+			    		file.nbDowload = 0
 			    		file.date = new Date();
 
 

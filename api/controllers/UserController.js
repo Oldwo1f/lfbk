@@ -53,6 +53,7 @@ module.exports = {
 		var user = {};
 		user.name = 'Momcilovic';
 		user.firstname = 'Alexis';
+		user.role = 'admin';
 		user.password ='a';
 		user.email ='alexismomcilovic@gmail.com';
 
@@ -70,10 +71,10 @@ module.exports = {
 	login:function(req,res,next){
 		console.log('LOGIN!');
 		function createJWT(user) {
-			var role = user.role ? user.rose : 'user'
+			var role = user.role ? user.role : 'user'
 			var payload = {
 				iss: req.hostname,
-				role: role,
+				data: {role:role},
 				sub: user.id,
 				iat: moment().valueOf(),
 				exp: moment().add(14, 'days').valueOf()

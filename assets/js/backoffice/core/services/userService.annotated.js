@@ -140,13 +140,15 @@ angular.module('core')
                 // console.log(data);
                 deferred.resolve(data);
             }).error(function (data,status) {
-                if(status == '401')
-                    $state.go('login')
+                // if(status == '401')
                 // console.log('ERROR');
                 // console.log(data);
                 deferred.reject(data);
             })
             return deferred.promise;      
+        }else{
+                    $state.go('login')
+            
         }
     }   
     service.fetchOne=function(id){

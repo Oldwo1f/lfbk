@@ -31,7 +31,7 @@ var listWidgetDirectivesApp = function listWidgetDirectivesApp() {
 
 
 
-angular.module('core', ['angular-notification-icons','chart.js','angular-nicescroll','uxGenie','ngLetterAvatar','sails.io','color.picker','satellizer','infinite-scroll','ui.sortable','ngTagsInput','ngFileUpload','ngMaterial','ui.router','gridster','ngSanitize','ngAnimate','ui.tinymce','angularMoment','ui.bootstrap.datetimepicker','angularSpinner','momi-social','momi-user','momi-blog','momi-categories','momi-login','momi-params','momi-projects'])
+angular.module('core', ['angular-notification-icons','chart.js','angular-nicescroll','uxGenie','ngLetterAvatar','sails.io','color.picker','satellizer','infinite-scroll','ui.sortable','ngTagsInput','ngFileUpload','ngMaterial','ui.router','gridster','ngSanitize','ngAnimate','ui.tinymce','angularMoment','ui.bootstrap.datetimepicker','angularSpinner','momi-social','momi-user','momi-blog','momi-categories','momi-login','momi-params','momi-projects','momi-sliders'])
 .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider){
 
     $stateProvider
@@ -71,12 +71,12 @@ angular.module('core', ['angular-notification-icons','chart.js','angular-nicescr
             console.log('ERRRRRRRRRRRRRRRRRRRERRRRRRRRRRRRRRRRRRRRRRREEEEEEEEEEEERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR');
             
             console.log(rejection);
-            if(rejection.status == '401'){
+            if(rejection.status == '401' || rejection.status == '402' || rejection.status == '403'){
 
                 $('.pageDash').addClass('pageVisible').removeClass('pageAfter pageBefore');
                 $('.page1').addClass('pageAfter').removeClass('pageVisible pageBefore');
                 $('.page2').addClass('pageAfter').removeClass('pageVisible pageBefore');
-                $rootScope.stopSpin()
+                // $rootScope.stopSpin()
                 $state.go('logout')
             }
             // if (canRecover(rejection)) {

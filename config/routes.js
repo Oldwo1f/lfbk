@@ -55,6 +55,11 @@ module.exports.routes = {
   'get /api/article/:sort/:limit/:page':'articleController.fetch',
   'get /api/articleActif/:sort/:limit/:page':'articleController.fetchActive',
   'get /api/article/:id':'articleController.fetchOne',
+  'POST /api/slide/:id/images':'slideController.uploadImage',
+  'POST /api/slide/:id/documents':'slideController.uploadDocument',
+  'get /api/slideshow/:sort/:limit/:page':'slideshowController.fetch',
+  'get /api/slideshow':'slideshowController.fetch',
+  'get /api/slideshow/home':'slideshowController.fetchHome',
   // 'POST /api/mycomment/:id':'commentController.update'
 
 
@@ -80,7 +85,6 @@ module.exports.routes = {
   'GET /getBestBlogger':'adminController.getBestBlogger',
   'GET /countAll':'adminController.countAll',
   'GET /getNewComments':'adminController.getNewComments',
-  'GET /getNotifications/:page':'adminController.getNotifications',
   'GET /getSocials':'adminController.getSocials',
 
   //Params 

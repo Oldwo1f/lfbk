@@ -26,7 +26,7 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  '*': 'ensureAdmin',
 
   /***************************************************************************
   *                                                                          *
@@ -35,7 +35,52 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
+    adminController:{
+      'serveApp':true,
+    },
+    tagController:{
+      'searchAutocomplete':true,
+    },
+    categoryController:{
+      'searchAutocomplete':true,
+    },
+    ImageController:{
+      'serveImage':true,
+    },
+    DocumentController:{
+      'serveDocument':true,
+    },
+    slideshowController:{
+      'fetch':true,
+    },
+    ParamsController:{
+      'getLangs':true,
+    },
     articleController:{
-      // '*':'ensureAuth',
-    }
+      'search':true,
+      'fetch':true,
+      'fetchActive':true,
+      'fetchOne':true,
+    },
+    projectController:{
+      'search':true,
+      'fetch':true,
+      'fetchActive':true,
+      'fetchOne':true,
+    },
+    UserController:{
+      'findOne':true,
+      'verifyUniqueEmail':true,
+      'firstConnexion':true,
+      'addFirstAdmin':true,
+      'login':true,
+    },
+    FrontController:{
+      '*':true,
+    },
+
+
+
+
+
 };

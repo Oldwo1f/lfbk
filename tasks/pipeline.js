@@ -28,6 +28,7 @@ var cssFilesToInject = [
   'bower_components/angular-trustpass/dist/tr-trustpass.min.css',
   'bower_components/angular-notification-icons/dist/angular-notification-icons.min.css',
   'bower_components/angular-chart.js/dist/angular-chart.min.css',
+  'bower_components/angular-carousel/dist/angular-carousel.min.css',
   // 'bower_components/angular-material/angular-material.css',
 
   'styles/backoffice/**/*.css',
@@ -85,6 +86,8 @@ var jsFilesToInject = [
   'bower_components/Chart.js/Chart.js',
   'bower_components/angular-chart.js/dist/angular-chart.min.js',
   'bower_components/angular-elastic/elastic.js',
+  'bower_components/angular-touch/angular-touch.min.js',
+  'bower_components/angular-carousel/dist/angular-carousel.min.js',
   // 'bower_components/angularjs-color-picker/dist/angularjs-color-picker.min.js',
 
   // 'bower_components/textAngular/dist/textAngular-rangy.min.js',

@@ -28,57 +28,8 @@ module.exports = {
           collection: 'comment',
           via:'article'
         },
-    //     author: {
-    // 			model: 'user'
-    // 		},
-    //     images: {
-    //         collection: 'imagearticle',
-    //         via:'article'
-    //     },
-    //     documents: {
-    //         collection: 'documentarticle',
-    //         via:'article'
-    //     },
-    //     comments: {
-    //       collection: 'comment',
-    //       via:'article'
-    //     },
-    //     translations: {
-    //       collection: 'articletraduction',
-    //       via:'article'
-    //     }
     },
-    // afterCreate: function (value, callback){
-    // 	console.log('afterCreate');
-
-    //     es.create('article',value).then(function(){
-    //         return callback()
-    //     }).catch(function(err){
-    //            console.log(err);
-    //     })
- 
-    // },
-    // afterUpdate: function (value, callback){
-    //     // console.log('after UPDATE');
-    //     // console.log(value);
-    //     // Article.findOne(value.id).populate('tags').then(function(data){
-
-    //     //     console.log('FOUND');
-    //     //     console.log(data);
-
-    //     //     return 
-    //     // }).then(function(){
-    //     //     return callback()
-    //     // }).catch(function(err){
-    //     //     console.log('error');
-    //     // })
-
-    //     es.update('article',value).then(function(){
-    //         return callback()
-    //     }).catch(function(err){
-    //            console.log(err);
-    //     })
-    // },
+    
     afterDestroy: function (value, callback){
         console.log('AFTER ARTICLE DESTROY');
         console.log(value);
@@ -88,5 +39,55 @@ module.exports = {
                console.log(err);
         })
     },
+    beforeDestroy: function (value, callback){
+        console.log('BEFORE SLIDE DESTROY');
+        console.log(value.where.id);
+        var id = value.where.id
+        Article.findOne(id).populateAll().then(function(data){
+            console.log(data);
+            var imgsToDestroy = data.images.map(function(img) {
+                return Image.destroy(img.id);
+            });
+            var docsToDestroy = data.documents.map(function(img) {
+                return Document.destroy(img.id);
+            });
+            var TagsUpdate = data.tags.map(function(tag) {
+                if(tag.total-1 <=0){
+                    return Tag.destroy(tag.id).then(function(data){
+                        console.log('TAGDESROY -- ARTICLE destroy');
+                        console.log(data);
+                    });
+                }else{
+                    return Tag.update(tag.id,{nbArticles:tag.nbArticles-1,total:tag.total-1});
+                }
+            });
+            var CategoriesUpdate = data.categories.map(function(cat) {
+               if(cat.total-1 <=0){
+                    return Category.destroy(cat.id).then(function(data){
+                        console.log('Category destroy -- ARTICLE destroy');
+                        console.log(data);
+                    });
+                }else{
+                    return Category.update(cat.id,{nbArticles:cat.nbArticles-1,total:cat.total-1});
+                }
+            });
+
+            return Promise.all(imgsToDestroy)
+              .then(function() {
+                return Promise.all(docsToDestroy)
+                  .then(function() {
+                       
+                    return Promise.all(TagsUpdate)
+                      .then(function() {
+                           return Promise.all(CategoriesUpdate)
+                      .then(function() {
+                            callback()
+                    })
+                    })
+                })
+            })
+            
+        })
+    }
 };
 

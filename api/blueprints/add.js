@@ -133,7 +133,7 @@ module.exports = function addToCollection (req, res) {
       // Create a new instance and send out any required pubsub messages.
       function createChild() {
         console.log('CREATE CHILD');
-        // console.log(child);
+        console.log(child);
         ChildModel.create(child).exec(function createdNewChild (err, newChildRecord){
 
           console.log(newChildRecord);

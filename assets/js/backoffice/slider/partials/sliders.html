@@ -1,0 +1,69 @@
+<div class="my-container sliders">
+
+
+	<article class="widget">
+		<header class="pageHeader">
+
+			<a  class="rightBtn" ng-click="returnDashboardState()">
+				<span ><i class="fa fa-dashboard"></i></span>
+			</a>
+			<a  class="rightBtn" ng-click="returnPreviousState()">
+				<span  ><i class="fa fa-long-arrow-left"></i></span>
+			</a>
+			<div class="pageTitle">
+				<i class="pe-7f-albums"></i><h3>Gestionaire de galeries</h3>
+			</div>
+			<!-- <div class="searchBar">
+				<input class="" type="text" ng-blur="searchArticle()" ng-keypress="blurOnEnter($event)" ng-model="searchSlug" placeholder="Recherche dans les articles">
+				<span class="iconsearch"><i class="fa fa-search"></i></span>
+			</div>
+			<a class="leftBtn" ui-sref="categories">
+				<span  ><i class="pe-7s-way"></i></span>
+			</a>-->
+			<a class="leftBtn" ng-click="displayAddPopUp()">
+				<span  ><i class="pe-7s-plus"></i></span>
+			</a> 
+		</header>
+		
+		<div class="widget__content ">
+					
+			   	<div class="slideshowList">
+			   		<div class="slideshow" ng-repeat="slideshow in slideshowList">
+			   			<div class="infos">
+			   				<div>
+			   					<div class="title"><strong>{{slideshow.title}}</strong></div>
+			   					<div class="width"><i class="fa fa-arrows-h"></i> {{slideshow.width}}</div>
+			   					<div class="height"><i class="fa fa-arrows-v"></i> {{slideshow.height}}</div>
+			   				</div>
+			   				<div class="removeremovecontainer">
+									<removeremove class="removeremove" action="deleteSlideshow" itemid="slideshow.id"><button type="button" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> </button></removeremove>
+							</div>
+			   			</div>
+			   			<div class="slidesInSlideShow" ng-nicescroll  ui-sortable="sortOption" ng-model="slideshow.slides" nice-option="optionScroll">
+			   				
+			   				<div class="slideInSlideShow" ng-repeat="slide in slideshow.slides" ng-click="editSlidePopUp(slideshow,slide.id,slide)" rel="{{slideshow.id}}">
+			   					<!--  -->
+			   					<div class="imgred">
+			   						<img ng-src="image/resized2/{{slide.images[0].filename}}" alt="">
+			   					</div>
+			   					<div class="title">{{slide.title}}</div>
+			   					<!-- <div class="document">{{slide.title}}</div> -->
+
+			   					<div ng-if="!slide.images[0] && !slide.title">
+			   						Slide vide
+			   					</div>
+
+			   				</div>
+			   				
+			   				<div class="addBtnInSlideShow" ng-click="addSlide(slideshow.id)">
+			   					<div class="addSlideIcon"><i class="pe-7s-plus"></i></div>
+			   					<div class="title">Ajouter un slide</div>
+			   				</div>
+			   			</div>
+			   		</div>
+			   	</div>
+			
+		</div> 
+
+	</article>
+</div>

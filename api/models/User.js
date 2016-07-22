@@ -189,15 +189,17 @@ module.exports = {
 	  	sid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$@');
 		sid.seed(20);
 		var myuniquevalue = sid.generate()
-	  	var link = "http://localhost:3000/admin#/firstconnexion/"+myuniquevalue+"/"+value.email;
+	  	var link = sails.config.URL_HOME+"admin#/firstconnexion/"+myuniquevalue+"/"+value.email;
 	  	value.newuserhash = myuniquevalue;
 	  	var encrypted = crypto.encrypt(myuniquevalue);
 	  	value.password= encrypted;
+	  	var company = sails.config.company
+	  	var role = value.role
 	  	mail.sendEmail({
              from: '"'+sails.config.company+'" <'+sails.config.mainEmail+'>', // sender address 
              to: 'alexismomcilovic@gmail.com', // list of receivers 
              subject: sails.config.company+' - Creation de compte', // Subject line 
-         },'newUser',{link:link}).then(function(data){
+         },'newUser',{link:link,company: company,role:role , URL_HOME:sails.config.URL_HOME}).then(function(data){
             console.log('THEN IN TOTO');
             console.log(data);
          });
@@ -205,5 +207,39 @@ module.exports = {
 	    
 
 	},
+
+	beforeDestroy: function (value, callback){
+        console.log('BEFORE SLIDE DESTROY');
+        console.log(value.where.id);
+        var id = value.where.id
+        User.findOne(id).populateAll().then(function(data){
+        	console.log(data);
+        	var imgsToDestroy = data.images.map(function(img) {
+                return Image.destroy(img.id);
+            });
+        	// var docsToDestroy = data.images.map(function(img) {
+         //        return Image.destroy(img.id);
+         //    });
+
+            return Promise.all(imgsToDestroy)
+	          .then(function() {
+	          	// return Promise.all(docsToDestroy)
+		          // .then(function() {
+		          		callback()
+		              // return article;
+		        // })
+	        })
+        	
+        })
+    },
+    afterDestroy: function (value, callback){
+        console.log('AFTER ARTICLE DESTROY');
+        console.log(value);
+        es.delete('user',value[0]).then(function(){
+            return callback()
+        }).catch(function(err){
+               console.log(err);
+        })
+    }
 };
 

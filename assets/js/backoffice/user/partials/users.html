@@ -44,14 +44,14 @@
 		  	<tbody>
 
 		  	
-		  		<tr class="tableRow" ng-repeat="user in usersList">
+		  		<tr class="tableRow" ng-repeat="user in usersList" ng-click="ModalEdit(user)">
 
 		  			<td>
 		  				<p class="post__date">
 		  					
-		  					<span class="dddd">{{user.createdAt | amDateFormat:'dddd'}}</span>
 		  					<span class="DD">{{user.createdAt | amDateFormat:'DD'}}</span>
-		  					<span class="MM ">{{user.createdAt | amDateFormat:'MMM'}}</span>
+		  					<span class="MM "style="margin-top:3px;">{{user.createdAt | amDateFormat:'MMM'}}</span>
+		  					<span class="dddd">{{user.createdAt | amDateFormat:'YYYY'}}</span>
 		  				</p>
 		  			</td>
 		  			<td>

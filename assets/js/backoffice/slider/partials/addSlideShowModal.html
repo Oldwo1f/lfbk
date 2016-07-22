@@ -1,0 +1,52 @@
+<md-dialog  class="userAddContainer"  ng-cloak>
+  <form>
+    <!-- <md-toolbar>
+      <div class="md-toolbar-tools">
+      	<div>Ajouter une gallerie</div>
+		<div ngf-drop="addImgCrop($files)" ngf-pattern="'image/*'"ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" ngf-drag-over-class="'dragover'" ng-model="file" class="drop-zone" >Déposer une image ici</div>
+        <div class="button btnADDIMG" ngf-select="addImgCrop($files)" ng-model="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"> <i class="pe-7s-plus"></i></div>
+      </div>
+    </md-toolbar> -->
+    <md-dialog-content>
+				
+			<article class="widget widget__form">
+			<div class="form_col">
+
+				<label for="input-3" class="stacked-label"><i class="pe-7s-flag"></i></label>
+				<input type="text" name="title" required class="stacked-input"  ng-model="formData.title" id="input-3" placeholder="Nom de la galerie">
+				<!-- <md-slider-container> -->
+				<div class="rowform" style="margin-top:1px;">
+					
+			      <label for="input-3" style="margin-top:-1px;;" class="stacked-label" style="margin-top:0px;"><i class="fa fa-arrows-h"></i></label>
+			      <input  required style="margin-bottom:1px;" class="rangeInput stacked-input" type="number" ng-model="formData.width" aria-label="red" aria-controls="width-slider">
+			      
+			      <md-slider style="margin-bottom:1px;" class="md-primary" flex min="0" max="2000" ng-model="formData.width" aria-label="red" id="width-slider">
+			      </md-slider>
+				</div>
+				<div class="rowform" style="margin-bottom:1px;margin-top: -1px;">
+					
+			      <label for="input-4" class="stacked-label" ><i class="fa fa-arrows-v"></i></label>
+			      <input  required class="rangeInput stacked-input" style="margin-top: 1px;"type="number" ng-model="formData.height" aria-label="violet" aria-controls="height-slider">
+			      
+			      <md-slider style="margin-top: 1px;"class="md-primary"flex min="0" max="2000" ng-model="formData.height" aria-label="violet" id="height-slider">
+			      </md-slider>
+				</div>
+			      
+			    <!-- </md-slider-container> -->
+				<!-- <label for="input-2" class="stacked-label"><i class="fa fa-arrows-h"></i></label>
+				<input type="text" name="width" required class="stacked-input"  ng-model="formData.width" id="input-2" placeholder="Largeur">	
+
+				<label for="input-1" class="stacked-label"><i class="fa fa-arrows-v"></i></label>
+				<input type="text" name="height" required class="stacked-input"  ng-model="formData.height" id="input-1" placeholder="hauteur">	 -->
+			</div>
+		</article>
+			
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+	
+      <md-button type="submit" ng-click="CreateSlideshow()" class="btn blue" style="margin-right:10px;">
+        Créer ma galerie
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

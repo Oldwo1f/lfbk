@@ -1,0 +1,71 @@
+<div class="maincontent">
+	<!-- <div class="toggleEditmode" style="z-index:1000;" ng-click="toogleEditMode()" >
+		<input type="checkbox" ng-model="editionMode" id="switch-editmode" class="sw" checked />
+		<label class="switch2 green" for="switch-editmode" title="Entrer/sortir du mode edition"></label> 
+	</div>
+	<div class="savedash"  ng-click="saveDash()">
+		<a class="btn-circle btn-sm" title="Save Dashboard"><i class="pe-7f-paperclip"></i></a>
+	</div> -->
+	<article class="widget">
+			
+		<header class="widget__header">
+				<div class="widget__icon"><i  class="pe-7s-albums"></i></div>
+				<div class="widget__title">
+					<span>Slider Home </span> 
+					
+				</div>
+				<div class=" btn-header" ui-sref="sliders()" ><md-tooltip md-direction="bottom"> Gestionaire de gallerie</md-tooltip><i class="pe-7s-right-arrow"></i></div>
+		</header>
+ 
+		<div class="widget__content filled">
+			<div id="noLastWidgetElment" ng-show="!slideshow">
+				<span>Aucun slider de page d'accueil</span>
+			</div>
+			<md-card class="RESIZEHEIGHT" >
+
+		       	<ul ng-if="slideshow.slides.length" class="sliderWidgetSlider" rn-carousel rn-carousel-index="carouselIndex" rn-carousel-transition="fadeAndSlide" rn-carousel-auto-slide="4">
+				  <li ng-repeat="slide in slideshow.slides">
+				  	<!-- <p>tototo {{slide.link}}</p> -->
+				  	<img ng-src="image/resized2/{{slide.images[0].filename}}" alt="">
+				  	<div class="title">{{slide.title}}</div>
+				  </li>
+				  
+				</ul>
+				<div class="carouselIndicContainer" rn-carousel-indicators ng-if="slideshow.slides.length > 1" slides="slideshow.slides" rn-carousel-index="carouselIndex"></div>
+		    </md-card>
+			<!-- <div>
+				<h4>{{lastArticle.title}}</h4>
+				<figure class="pull-right post__img" ng-if="lastArticle.images.length > 0 && (!lastArticle.videoUrl || !lastArticle.videoHost)">
+					<img class="media-object" ng-src="image/adminThumbs/{{lastArticle.images[0].filename}}">
+				</figure>
+				<figure  class="pull-right post__img post_video" ng-if="lastArticle.videoUrl && lastArticle.videoHost">
+					<div ng-if="lastArticle.videoHost =='youtube'"> <i class="socicon-youtube" aria-hidden="true"></i></div>
+					<div ng-if="lastArticle.videoHost =='dailymotion'"> <i class="socicon-dailymotion" aria-hidden="true"></i></div> 
+					<div ng-if="lastArticle.videoHost =='vimeo'"> <i class="socicon-vimeo" aria-hidden="true"></i></div>
+				</figure>
+				<p class="post__info"  ng-bind-html="lastArticle.content" parent-id="lastArticle.id" content-html="lastArticle.content" html-ellipsis>
+
+
+  				<div class="infosinfos">
+  					<div class="tablecat" ng-repeat="cat in lastArticle.categories" style="color:{{cat.textColor}};background-color : {{cat.color}};border-color : {{cat.color}}">
+  						<span>{{cat.name}}</span>
+  					</div>
+  					<div class="tabletag" ng-repeat="tag in lastArticle.tags">
+  						<span>{{tag.text}}</span>
+  					</div>
+  				</div>
+
+			</div> -->
+			<!-- <div ng-repeat="(key, item) in widgetList" class="listConfigItem" ng-if="!item.required">
+				<div class="keepThisEvent" >
+					<input type="checkbox" ng-model="item.enabled" id="switch-{{key}}" class="sw" checked />
+					<label class="switch green" for="switch-{{key}}" title="Activer/Désactiver ce widget"></label> 
+				</div>
+				<h4 class="">{{item.widgetName}}</h4>
+			</div> -->
+			
+			<!-- <p class="graph-number"><span>6,184</span> Visits</p> -->
+
+		</div>
+	</article>
+</div>

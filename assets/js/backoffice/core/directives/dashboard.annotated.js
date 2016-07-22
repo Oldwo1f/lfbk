@@ -340,6 +340,32 @@ genie.context('global')
             }
         });
         genie({
+            magicWords: ['Gestionaire de gallerie','gallerie','Slider','home slider'],
+            action: function(wish) {
+                
+                 $state.go('sliders')
+            },
+            context: 'global',
+            data: {
+              uxGenie: {
+                iIcon: 'pe-7f-albums',
+              }
+            }
+        });
+        genie({
+            magicWords: ['Paramètres','Parametre d\'administration','Traduction','config','settings'],
+            action: function(wish) {
+                
+                 $state.go('params')
+            },
+            context: 'global',
+            data: {
+              uxGenie: {
+                iIcon: 'pe-7f-edit',
+              }
+            }
+        });
+        genie({
             magicWords: ['Déconnexion','deconnexion','lot out','logout'],
             action: function(wish) {
                 
@@ -370,8 +396,8 @@ genie.context('global')
             magicWords: ['Normal','Default','Bleu','1'],
             action: function(wish) {
                 
-                 $scope.$broadcast('geniechangeTheme','bg1');
-                 // $rootScope.$broadcast('changeTheme','bg1');
+                 // $scope.$broadcast('geniechangeTheme','bg1');
+                 $rootScope.$broadcast('changeTheme','bg1');
             },
             context: 'theme',
             data: {
@@ -384,8 +410,8 @@ genie.context('global')
             magicWords: ['Rouge','red','rose','3'],
             action: function(wish) {
                 
-                 $scope.$broadcast('geniechangeTheme','bg3');
-                 // $rootScope.$broadcast('changeTheme','bg3');
+                 // $scope.$broadcast('geniechangeTheme','bg3');
+                 $rootScope.$broadcast('changeTheme','bg3');
             },
             context: 'theme',
             data: {
@@ -398,8 +424,8 @@ genie.context('global')
             magicWords: ['Orange / Violet','violet','orange','2'],
             action: function(wish) {
                 
-                 $scope.$broadcast('geniechangeTheme','bg2');
-                 // $rootScope.$broadcast('changeTheme','bg3');
+                 // $scope.$broadcast('geniechangeTheme','bg2');
+                 $rootScope.$broadcast('changeTheme','bg3');
             },
             context: 'theme',
             data: {
@@ -412,8 +438,8 @@ genie.context('global')
             magicWords: ['Vert','green','nature','4'],
             action: function(wish) {
                 
-                 $scope.$broadcast('geniechangeTheme','bg4');
-                 // $rootScope.$broadcast('changeTheme','bg3');
+                 // $scope.$broadcast('geniechangeTheme','bg4');
+                 $rootScope.$broadcast('changeTheme','bg3');
             },
             context: 'theme',
             data: {
@@ -479,12 +505,7 @@ genie.context('global')
       }],
       link:function(scope,element,attrs){
 
-        setTimeout(function(){
-          console.log('timeout');
-
-          console.log(scope);
-
-        },7000)
+       
 
         console.log(scope.$parent.$parent.$parent);
           

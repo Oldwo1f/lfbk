@@ -14,9 +14,9 @@
 					<span>Dernier article </span> 
 					
 					<span class="dateInTitle">
-						<span class="nbViewsTitle"><i class="fa fa-eye"></i>{{lastArticle.nbView}}</span>
-						<span>-</span> 
-						<span am-time-ago="lastArticle.date"></span>
+						<span class="nbViewsTitle"><i ng-show="lastArticle" class="pe-7s-look"></i>{{lastArticle.nbView}}</span>
+						<span ng-show="lastArticle">-</span> 
+						<span ng-show="lastArticle" am-time-ago="lastArticle.date"></span>
 						<!-- <span class="dddd">{{lastArticle.date | amDateFormat:'dddd'}}</span>
 						<span class="DD">{{lastArticle.date | amDateFormat:'DD'}}</span>
 						<span class="MM ">{{lastArticle.date | amDateFormat:'MMM'}}</span> -->
@@ -28,7 +28,7 @@
 				</div>
 				<div  class="keepThisEvent btn-header" ng-click="saveDash()" title="Save Dashboard"><i class="pe-7s-diskette"></i></div>
 				<div  class="keepThisEvent btn-header" ng-click="restoreDefault()" title="Restaurer le dashboard par default"><i class="pe-7s-refresh"></i></div> -->
-				<div class=" btn-header" ui-sref="blog" ><md-tooltip md-direction="bottom"> Tout les articles</md-tooltip><i class="pe-7s-albums"></i></div>
+				<div class=" btn-header" ui-sref="blog" ><md-tooltip md-direction="bottom"> Tout les articles</md-tooltip><i class="pe-7s-keypad"></i></div>
 				<div class=" btn-header" ui-sref="blog.add()" ><md-tooltip md-direction="bottom"> Ajouter un article</md-tooltip><i class="pe-7s-plus"></i></div>
 				<div class=" btn-header" ui-sref="blog.edit({id: lastArticle.id})" ><md-tooltip md-direction="bottom"> Modifier cet article</md-tooltip><i class="pe-7s-right-arrow"></i></div>
 		</header>

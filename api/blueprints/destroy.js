@@ -20,10 +20,13 @@ var actionUtil = require('../blueprints/actionUtil');
  */
 module.exports = function destroyOneRecord (req, res) {
 
+
+  console.log('DESTROY BLUEPRINT');
+
   var Model = actionUtil.parseModel(req);
   var pk = actionUtil.requirePk(req);
 
-  var query = Model.findOne(pk);
+  var query = Model.findOne(pk).populateAll();
   query = actionUtil.populateRequest(query, req);
   query.exec(function foundRecord (err, record) {
     if (err) return res.serverError(err);

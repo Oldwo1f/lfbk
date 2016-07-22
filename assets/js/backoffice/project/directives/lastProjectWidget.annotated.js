@@ -99,9 +99,9 @@ angular.module('core')
       
       $('.lastprojectWidget .RESIZEHEIGHT md-card-title-text').getNiceScroll().resize();
       $('#noLastProjectElment').css('height' , item.getElementSizeY()-94 +'px')
+      $('.card-media ').height(item.getElementSizeY()-125)
+      $('.card-media ').width(item.getElementSizeY()-125)
     },1)
-    $('.card-media ').height(item.getElementSizeY()-125)
-    $('.card-media ').width(item.getElementSizeY()-125)
         	
         	item.$element.removeClass('style0 style1 style2 style3 style4 style5 style6 style7 style8 style9 style10 style11 style12 style13 style14 style15 smallFont extralargeFont mediumFont  largeFont')
         	.addClass(classToSet+ ' ' + classFont)

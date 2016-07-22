@@ -178,7 +178,7 @@ angular.module('momi-user')
 				// $scope.fetchUsers()
 				
 			}	
-			$scope.update=function(userid,attribute,value){
+			$scope.update=function(userid){
 				console.log(userid);
 				$rootScope.startSpin();
 				var attrToUpdate = {};
@@ -206,10 +206,10 @@ angular.module('momi-user')
 						$scope.usersList[index] = data;
 					}
 			})		
-			$rootScope.$on('userSelfRemove',function(e,id){
-				console.log(id);
+			$rootScope.$on('userSelfRemove',function(e,data){
+				console.log(data);
 				console.log('userSelfRemove');
-					var index = _.findIndex($scope.usersList, function(o) { return o.id == id; });
+					var index = _.findIndex($scope.usersList, function(o) { return o.id == data.id; });
 					if( index !== -1) {
 						$scope.usersList.splice(index,1)
 					}
@@ -395,12 +395,158 @@ angular.module('momi-user')
 			    }, function() {
 			      $scope.status = 'You cancelled the dialog.';
 			    });
-			    
-			// };
-
-
-
 			}
+			$scope.ModalEdit=function(user){
+				
+			    $mdDialog.show({
+			      	controller: ["$scope", "$rootScope", "userService", "$timeout", function($scope,$rootScope,userService, $timeout){
+			      	
+			      		$scope.formData = user;
+			      		// $scope.formData.role = 'admin';
+			      		// deleteUser
+			      		$scope.update=function(attribute){
+							console.log(user.id);
+							$rootScope.startSpin();
+							// var attrToUpdate = {};
+							// attrToUpdate[attribute] = value;
+							userService.update(user.id,$scope.formData).then(function(data){
+								console.log('----------------------------------------------------------');
+								console.log(data);
+								// console.log($scope.$parent);
+								// $rootScope.$broadcast('userSelfChange',data);
+
+			        			$rootScope.stopSpin();
+							},function(d){
+								console.log('EROOR');
+							})
+						}	
+						$scope.deleteUser=function(){
+							console.log(user.id);
+							$rootScope.startSpin();
+							// var attrToUpdate = {};
+							// attrToUpdate[attribute] = value;
+							userService.remove(user.id).then(function(data){
+								console.log('---------REMOVED-------------------------------------------------');
+								console.log(data);
+								// console.log($scope.$parent);
+								$rootScope.$broadcast('userSelfRemove',data);
+								$mdDialog.hide()
+			        			$rootScope.stopSpin();
+							},function(d){
+								console.log('EROOR');
+							})
+						}	
+			      		$scope.addUser = function(){
+			      			console.log('ADD USER');
+			      			$('.invalidInput').removeClass('invalidInput');
+			      			if($scope.formData.email && $scope.formData.name && $scope.formData.firstname){
+			      				
+			      				userService.create($scope.formData).then(function(data){
+			      					console.log('ok');
+			      					console.log(data);
+			      					$rootScope.$broadcast('userSelfcreate',data);
+			      					$rootScope.stopSpin();
+		                        	$mdDialog.hide()
+			      					
+			      				}).catch(function(err){
+
+			      					console.log(err);
+			      					if(err.status == 400)
+			      					{
+			      						console.log('invalid form req');
+			      						_.map(err.invalidAttributes, function(val,key){
+
+			      							console.log(key);
+			      							$('input[name="'+key+'"]').addClass('invalidInput');
+			      							console.log(val);	
+			      						})
+
+			      					}
+			      					
+			      				})
+			      			}
+			      			console.log($scope.formData);
+			      			// if($scope.formData.email == null){}
+			      		}
+
+			      		
+						function tinymce_focus(){
+							console.log('FOCUS');
+					        $('.mce-edit-area').addClass('focused');
+					    }
+
+					    function tinymce_blur(){
+					        $('.mce-edit-area').removeClass('focused');
+					    	console.log('BLUR');
+					    }
+
+			      		$scope.tinymceOption ={
+			      			// skin: 'myStyle',
+			      			content_css : '/styles/tinymce.css' ,
+			      			setup: function(editor) {
+
+			  					var placeholder = $('#' + editor.id).attr('placeholder');
+							    if (typeof placeholder !== 'undefined' && placeholder !== false) {
+							      var is_default = false;
+							      editor.on('init', function() {
+							        // get the current content
+							        var cont = editor.getContent();
+							        $(editor.getDoc()).contents().find('body').focus(function(){tinymce_focus();});
+			                    	$(editor.getDoc()).contents().find('body').blur(function(){tinymce_blur();});
+							        // If its empty and we have a placeholder set the value
+							        if (cont.length === 0) {
+							          editor.setContent(placeholder);
+							          // Get updated content
+							          cont = placeholder;
+							        }
+							        // convert to plain text and compare strings
+							        is_default = (cont == placeholder);
+
+							        // nothing to do
+							        if (!is_default) {
+							          return;
+							        }
+							      })
+							      .on('focus', function() {
+							        // replace the default content on focus if the same as original placeholder
+							        if (is_default) {
+							          editor.setContent('');
+							        }
+							      })
+						      	  .on("blur", function() {
+								        console.log('ON bbbblur');
+							         	if (editor.getContent().length === 0) {
+									    	editor.setContent(placeholder);
+								    	}
+							      	});
+					      		}
+
+					      		editor.on("blur", function() {
+							        
+							        $scope.update('description');
+						      	});
+							},
+			      			plugins: 'link image code',
+			      			statusbar:false,
+			      			toolbar: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist indent outdent | link image '
+
+
+						}
+
+			     	}],
+			      	templateUrl: 'js/backoffice/user/partials/edit.html',
+			      	parent: angular.element(document.body),
+			      	// targetEvent: ev,
+			      	clickOutsideToClose:true,
+			    })
+			    .then(function(answer) {
+			      $scope.status = 'You said the information was "' + answer + '".';
+			    }, function() {
+			      $scope.status = 'You cancelled the dialog.';
+			    });
+			}
+
+
 			if($stateParams.pseudostate == 'add')
 			{
 				console.log('NOW IT OK');

@@ -14,9 +14,9 @@
 					<span>Dernier project </span> 
 					
 					<span class="dateInTitle">
-						<span class="nbViewsTitle"><i class="fa fa-eye"></i>{{lastProject.nbView}}</span>
-						<span>-</span> 
-						<span am-time-ago="lastProject.date"></span>
+						<span class="nbViewsTitle"><i ng-show="lastProject" class="pe-7s-look"></i>{{lastProject.nbView}}</span>
+						<span ng-show="lastProject">-</span> 
+						<span ng-show="lastProject" am-time-ago="lastProject.date"></span>
 						<!-- <span class="dddd">{{lastProject.date | amDateFormat:'dddd'}}</span>
 						<span class="DD">{{lastProject.date | amDateFormat:'DD'}}</span>
 						<span class="MM ">{{lastProject.date | amDateFormat:'MMM'}}</span> -->
@@ -28,7 +28,7 @@
 				</div>
 				<div  class="keepThisEvent btn-header" ng-click="saveDash()" title="Save Dashboard"><i class="pe-7s-diskette"></i></div>
 				<div  class="keepThisEvent btn-header" ng-click="restoreDefault()" title="Restaurer le dashboard par default"><i class="pe-7s-refresh"></i></div> -->
-				<div class=" btn-header" ui-sref="projects" ><md-tooltip md-direction="bottom"> Tout les projets</md-tooltip><i class="pe-7s-albums"></i></div>
+				<div class=" btn-header" ui-sref="projects" ><md-tooltip md-direction="bottom"> Tout les projets</md-tooltip><i class="pe-7s-keypad"></i></div>
 				<div class=" btn-header" ui-sref="projects.add()" ><md-tooltip md-direction="bottom"> Ajouter un projet</md-tooltip><i class="pe-7s-plus"></i></div>
 				<div class=" btn-header" ui-sref="projects.edit({id: lastProject.id})" ><md-tooltip md-direction="bottom"> Modifier ce projet</md-tooltip><i class="pe-7s-right-arrow"></i></div>
 		</header>

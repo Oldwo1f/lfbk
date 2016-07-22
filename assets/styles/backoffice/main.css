@@ -4627,9 +4627,10 @@ a:focus, a:hover{text-decoration: none;}
 
 .md-dialog-container .userAddContainer  { background: url(../../images/img/bg.jpg) ;background-size: cover;max-width: 800px;}
 .md-dialog-container .userAddContainer  md-dialog-content{ background: transparent;}
-.md-dialog-container .userAddContainer  md-dialog-actions{background: rgba(0,0,0,0.25);padding:20px;padding-top: 0;}
+.md-dialog-container .userAddContainer  md-dialog-actions{background: rgba(0,0,0,0.25);padding:20px;}
 .md-dialog-container .userAddContainer  .stacked-input{     line-height: 20px;}
 .md-dialog-container .userAddContainer  .btn-group.block { height: 80px;}
+.md-dialog-container .userAddContainer.edit  .btn-group.block { height: 40px;}
 .md-dialog-container .userAddContainer  .btn-group.block a{ font-size: 1.5em;}
 .userAddContainer .form_col{ width: 100%;float:none;}
 
@@ -4751,3 +4752,54 @@ a:focus, a:hover{text-decoration: none;}
 .traductions textarea {background:rgba(0,0,0,0.25);color:white; border:none;border-radius: 0;resize: none;}
 .traductions .tradList li {margin-bottom: 5px;}
 .traductions .tradList .flech{color:rgba(0,0,0,0.25);position:absolute;top:5px;right:-5px;}
+
+.rowform { display:flex;justify-content:center;align-items:center;}
+.rangeInput {height: 64px;    width: 150px;width: 120px;text-indent: 20px;}
+#width-slider{ padding:10px 0px; margin: 0;height: 64px; width:250px;display:inline-block; background:rgba(0,0,0,0.25);    margin-right: 1px;}
+#height-slider{ padding:10px 0px; margin: 0;height: 64px; width:250px;display:inline-block; background:rgba(0,0,0,0.25);    margin-right: 1px;}
+
+.slideshow {margin: 10px 0;display:flex;justify-content:center;    height: 200px;align-items: center}
+.slideshow .infos{ position: relative; background:rgba(0,0,0,0.35);margin-right: 1px;padding: 20px;font-size: 1.2em;width:200px;text-align: center;display:inline-flex;justify-content:center;    height: 100%;align-items: center;}
+.slideshow .infos .title{font-size: 1.3em;margin-bottom: 5px;} 
+.slideshow .infos .removeremovecontainer {opacity:0; position: absolute;right: 20px;bottom: 20px;background:rgba(0,0,0,0.25);height: auto;margin-top: 10px;}
+.slideshow:hover .infos .removeremovecontainer {opacity:1;}
+.slideshow .infos .removeremove {float:right;margin-top: 0px;}
+.slideshow .infos .removeremove .btn{ width: auto; height:auto;background:rgba(255,0,0,0.25);border:none; padding: 4px 6px 2px 6px;}
+.slideshow .infos .removeremove .btn:hover{background:rgba(255,0,0,0.35);}
+
+.slidesInSlideShow{display: inline-flex;width:calc( 100% - 205px );    height: 100%; }
+.slideInSlideShow{position: relative;cursor:move;margin-right: 1px;background:rgba(0,0,0,0.25);padding:20px;display:flex;flex-direction:column;align-items:center; justify-content:center;}
+.slideInSlideShow:hover{background:rgba(0,0,0,0.10);}
+.addBtnInSlideShow{margin-right: 1px;background:rgba(0,0,0,0.25);padding:20px;display:flex;flex-direction:column;align-items:center; justify-content:center;}
+.addBtnInSlideShow .addSlideIcon{font-size: 5em;opacity:0.5;}
+.addBtnInSlideShow:hover .addSlideIcon{opacity:0.8;}
+.addBtnInSlideShow .title{width:120px;text-align: center;opacity:0.5; cursor:pointer;}
+.addBtnInSlideShow:hover .title{opacity:1;}
+.slideInSlideShow .title{cursor:pointer;}
+/*.imgred {width: 220px;height: 120px;background: red; cursor:pointer;} */
+.imgred img {width:auto; max-height:150px;} 
+
+.imgrelativecontainer .btn{float:left; z-index: 9999;width: 50%;text-align: center;padding: 20px;height: auto;font-size: 1.2rem;}
+.imgrelativecontainer .btn:first-child{width: calc(50% - 1px);margin-left: 1px;}
+.editSLIDE .tinymcetextarea{    padding: 25px;min-height: 64px;}
+.editSLIDE .margedubas{  margin-top: 1px;margin-bottom: -1px;}
+.editSLIDE  .removeremovecontainer { position: relative;background:rgba(0,0,0,0.25);height: 44px;}
+.editSLIDE  .removeremove {float:right;margin-top: 20px;}
+.editSLIDE  .removeremove .btn{ width: auto; height:auto;background:rgba(255,0,0,0.25);border:none; padding: 4px 6px 2px 6px;}
+.editSLIDE  .removeremove .btn:hover{background:rgba(255,0,0,0.35);}
+.md-dialog-container .editSLIDE   .imageList{max-height:200px;}
+.md-dialog-container .editSLIDE   .imageList figure.post__img{position: relative;margin-right: 10px;}
+.md-dialog-container .editSLIDE   .imageList img{width: auto;height: 180px;}
+.md-dialog-container .editSLIDE   .imageList .btnreresize{position: absolute;right: 10px;bottom: 10px;padding: 4px;background:rgba(0,0,255,0.25);}
+.md-dialog-container .editSLIDE   .imageList .removeremove{position: absolute;right: 40px;bottom: 10px}
+.md-dialog-container .editSLIDE   .formTitleSpecial{display:flex;margin-bottom: 1px}
+.md-dialog-container .editSLIDE   .formTitleSpecial .drop-zone{margin-left: 1px; margin-bottom: 1px;height: 42px;}
+.md-dialog-container .editSLIDE   .formTitleSpecial .btnADDIMG{font-size: 2.5rem}
+.md-dialog-container .editSLIDE   .document {display: inline-flex;padding:20px;align-items: center;border-right:10px solid rgba(0,0,0,0.25);}
+.md-dialog-container .editSLIDE   .document .documentTitle{margin-left: 15px;margin-right: 15px;}
+.md-dialog-container .editSLIDE   .document .removeremove{margin-top: 0;float:none;}
+.md-dialog-container .editSLIDE .completor{width: 100%; background: rgba(0,0,0,0.25);margin: 0px;flex-grow: 1;}
+.md-dialog-container .documentList{display: flex;}
+ul[rn-carousel] {height: 100%;}
+
+.md-dialog-container md-dialog .removeremovecontainer button {height:auto;width: auto;    padding: 5px 18px 2px 18px;}
