@@ -59,7 +59,9 @@
   "scripts": {
     "debug": "node debug app.js",
     "start": "node app.js",
-    "test": "mocha test/bootstrap.test.js test/integration/**/*.test.js"
+    "test": "mocha test/bootstrap.test.js test/integration/**/*.test.js",
+    "lockdown": "./node_modules/.bin/lockdown",
+    "lockdown-relock": "./node_modules/.bin/lockdown-relock"
   },
   "main": "app.js",
   "repository": {
@@ -69,6 +71,7 @@
   "author": "root",
   "license": "",
   "devDependencies": {
+    "bower-shrinkwrap-resolver": "0.4.1",
     "browser-sync": "2.11.1",
     "browserify": "13.0.0",
     "chai-as-promised": "5.3.0",
