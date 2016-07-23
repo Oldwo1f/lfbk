@@ -1,58 +1,0 @@
-
-
-[32minfo: [39m
-[32minfo: [39m               .-..-.
-[32minfo: [39m
-[32minfo: [39m   Sails              <|    .-..-.
-[32minfo: [39m   v0.12.1             |\
-[32minfo: [39m                      /|.\
-[32minfo: [39m                     / || \
-[32minfo: [39m                   ,'  |'  \
-[32minfo: [39m                .-'.-==|/_--'
-[32minfo: [39m                `--'-------' 
-[32minfo: [39m   __---___--___---___--___---___--___
-[32minfo: [39m ____---___--___---___--___---___--___-__
-[32minfo: [39m
-[32minfo: [39mServer lifted in `/var/www/momi`
-[32minfo: [39mTo see your app, visit [4mhttp://localhost:1338[24m
-[32minfo: [39mTo shut down Sails, press <CTRL> + C at any time.
-[37m[39m
-[37m[39m
-  TEST ALL THIRD PARTY 
-    #sendEmail
-      - should send the email into you box 
-    #SOCIAL COUNT APIs
-      - should return facebook shares
-      - should return twitter count
-
-  UserModel
-    #find()
-      ✓ should check find function
-
-  MailService
-    ✓ should have mainEmail property
-    ✓ should have mainEmailPassword property
-    #sendEmail
-      ✓ should be a function
-      ✓ should call a method send
-      ✓ should send the email
-    #fetchTemplate
-      ✓ should be a function
-      ✓ should return an html template
-
-  socialService
-    ✓ should have property twitter_url
-    ✓ should have property facebook_url
-    #getTwitterCount
-      ✓ should be a function
-      ✓ should call a method callAPI
-      ✓ should return count
-    #getFacebookShare
-      ✓ should be a function
-      ✓ should call a method callAPI
-      ✓ should return shares
-
-
-  16 passing (2s)
-  3 pending
-
