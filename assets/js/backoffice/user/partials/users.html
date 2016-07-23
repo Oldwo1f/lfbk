@@ -55,10 +55,10 @@
 		  				</p>
 		  			</td>
 		  			<td>
-		  				<div class="btn-group block">
-						  <a ng-click="user.role='admin';update(user.id,'role','admin')" type="button" class="fakeColorGreen btn active"  ng-class="{'green':user.role=='admin','blue':user.role=='user','violet':user.role=='premium','bigger':user.role=='admin'}" style="border-bottom:0px">Admin</a>
-						  <a ng-click="user.role='user';update(user.id,'role','user')" type="button" class="fakeColorBlue btn active" ng-class="{'green':user.role=='admin','blue':user.role=='user','violet':user.role=='premium','bigger': user.role=='user'}" >User</a>
-						  <a ng-click="user.role='premium';update(user.id,'role','premium')" type="button" class="fakeColorViolet btn active" ng-class="{'green':user.role=='admin','blue':user.role=='user','violet':user.role=='premium','bigger':user.role=='premium'}"  style="border-top:0px">Premium</a>
+		  				<div class="btn-group block keepThisEvent">
+						  <a ng-click="user.role='admin';update(user.id,'role','admin'); $event.stopPropagation();" type="button" class="fakeColorGreen btn active"  ng-class="{'green':user.role=='admin','blue':user.role=='user','violet':user.role=='premium','bigger':user.role=='admin'}" style="border-bottom:0px">Admin</a>
+						  <a ng-click="user.role='user';update(user.id,'role','user'); $event.stopPropagation();" type="button" class="fakeColorBlue btn active" ng-class="{'green':user.role=='admin','blue':user.role=='user','violet':user.role=='premium','bigger': user.role=='user'}" >User</a>
+						  <a ng-click="user.role='premium';update(user.id,'role','premium'); $event.stopPropagation();" type="button" class="fakeColorViolet btn active" ng-class="{'green':user.role=='admin','blue':user.role=='user','violet':user.role=='premium','bigger':user.role=='premium'}"  style="border-top:0px">Premium</a>
 						</div>
 		  			</td>
 		  			<td colspan="2">

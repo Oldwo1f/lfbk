@@ -178,7 +178,7 @@ angular.module('momi-user')
 				// $scope.fetchUsers()
 				
 			}	
-			$scope.update=function(userid){
+			$scope.update=function(userid,attribute,value){
 				console.log(userid);
 				$rootScope.startSpin();
 				var attrToUpdate = {};
